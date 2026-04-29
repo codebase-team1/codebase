@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="코드베이스(CODE:BASE) 개인정보처리방침">
+<meta name="author" content="코드베이스 CODE:BASE">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="robots" content="noindex">
+<title>개인정보처리방침 | CODE:BASE 코드베이스</title>
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="shortcut icon" href="favicon.ico">
+
+<link rel="canonical" href="https://www.code-base.co.kr/privacy.html">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Noto+Sans+KR:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg0:#FFFFFF;--bg1:#F8FAFC;--bg2:#FFFFFF;--bg3:#F1F5F9;
+  --border:#E2E8F0;--border2:rgba(30,106,138,.35);
+  --sky:#1E6A8A;--cyan:#0891B2;--green:#059669;--red:#DC2626;
+  --t1:#0F172A;--t2:#475569;--t3:#94A3B8;
+  --shadow-sm:0 1px 2px rgba(15,23,42,.04), 0 1px 1px rgba(15,23,42,.03);
+  --shadow-md:0 4px 12px rgba(15,23,42,.06), 0 2px 4px rgba(15,23,42,.04);
+  --mono:'JetBrains Mono',monospace;--head:'Barlow Condensed',sans-serif;--body:'Noto Sans KR',sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg0);color:var(--t1);font-family:var(--body);font-size:15px;line-height:1.7;overflow-x:hidden;min-height:100vh;}
+a{color:var(--sky);text-decoration:none}
+a:hover{text-decoration:underline}
+body::before{
+  content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:linear-gradient(rgba(30,106,138,.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(30,106,138,.04) 1px,transparent 1px);
+  background-size:44px 44px;
+}
+nav{
+  position:fixed;top:0;width:100%;z-index:300;height:60px;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 2rem;background:rgba(255,255,255,.92);backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--border);box-shadow:var(--shadow-sm);
+}
+.logo-link{display:flex;align-items:center;gap:10px;}
+.logo-name{font-family:var(--head);font-weight:900;font-size:1.3rem;letter-spacing:2.5px;color:var(--t1);}
+.logo-name span{color:#3B9CC4;}
+.logo-sub{font-family:var(--mono);font-size:.44rem;letter-spacing:1.8px;color:var(--t3);}
+.nav-back{
+  display:inline-flex;align-items:center;gap:6px;
+  font-family:var(--mono);font-size:.72rem;color:var(--t2);
+  border:1px solid var(--border);border-radius:4px;padding:.38rem .9rem;
+  transition:color .2s,border-color .2s;
+}
+.nav-back:hover{color:var(--sky);border-color:var(--border2);text-decoration:none;}
+.wrap{max-width:880px;margin:0 auto;padding:0 2rem;position:relative;z-index:1;}
+.page-hero{
+  padding:88px 0 32px;
+  background:linear-gradient(180deg,rgba(30,106,138,.05) 0%,transparent 100%);
+  border-bottom:1px solid var(--border);
+}
+.eyebrow{
+  display:inline-flex;font-family:var(--mono);font-size:.66rem;letter-spacing:1.5px;color:var(--sky);
+  background:rgba(30,106,138,.08);border:1px solid rgba(30,106,138,.2);
+  border-radius:3px;padding:4px 12px;margin-bottom:.85rem;
+}
+.page-hero h1{font-family:var(--head);font-weight:900;font-size:clamp(1.8rem,3.5vw,2.4rem);line-height:1.1;margin-bottom:.5rem;}
+.page-hero .meta{font-family:var(--mono);font-size:.72rem;color:var(--t3);}
+.doc{padding:3rem 0 5rem;}
+.doc-card{
+  background:var(--bg2);border:1px solid var(--border);border-radius:12px;
+  padding:2.5rem 2rem;box-shadow:var(--shadow-md);
+}
+.doc-card h2{
+  font-family:var(--head);font-weight:800;font-size:1.25rem;color:var(--sky);
+  margin:2rem 0 .85rem;padding-bottom:.5rem;border-bottom:1px solid var(--border);
+}
+.doc-card h2:first-of-type{margin-top:0;}
+.doc-card p{font-size:.88rem;color:var(--t2);margin-bottom:.85rem;}
+.doc-card ul,.doc-card ol{margin:.5rem 0 .85rem 1.5rem;}
+.doc-card li{font-size:.88rem;color:var(--t2);margin-bottom:.4rem;}
+.doc-card strong{color:var(--t1);}
+.doc-card .info-box{
+  background:var(--bg3);border:1px solid var(--border);border-left:2px solid var(--sky);
+  border-radius:6px;padding:1rem 1.2rem;margin:1rem 0;
+}
+.doc-card table{
+  width:100%;border-collapse:collapse;margin:.75rem 0 1.25rem;
+  font-size:.84rem;
+}
+.doc-card th,.doc-card td{
+  border:1px solid var(--border);padding:.6rem .8rem;text-align:left;color:var(--t2);
+}
+.doc-card th{background:var(--bg3);color:var(--t1);font-weight:600;font-size:.82rem;}
+.toc{
+  background:var(--bg3);border:1px solid var(--border);border-radius:8px;
+  padding:1rem 1.25rem;margin-bottom:2rem;
+}
+.toc-title{font-family:var(--mono);font-size:.7rem;letter-spacing:1px;color:var(--t3);margin-bottom:.5rem;}
+.toc ol{margin:0 0 0 1.25rem;}
+.toc li{font-size:.84rem;margin-bottom:.25rem;color:var(--t2);}
+.toc a{color:var(--t2);}
+.toc a:hover{color:var(--sky);}
+@media(max-width:560px){
+  .doc-card{padding:1.5rem 1.25rem;}
+  nav,.wrap{padding-left:1.25rem;padding-right:1.25rem;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo-link">
+    <img src="logo.png" alt="코드베이스 CODE:BASE" style="height:34px;width:auto;display:block;" />
+  </a>
+  <a href="index.html" class="nav-back">← 홈으로</a>
+</nav>
+
+<div class="page-hero">
+  <div class="wrap">
+    <div class="eyebrow">PRIVACY POLICY</div>
+    <h1>개인정보처리방침</h1>
+    <div class="meta">시행일: 2026년 1월 1일 · 최종 개정: 2026년 1월 1일</div>
+  </div>
+</div>
+
+<div class="wrap doc">
+  <div class="doc-card">
+
+    <p>
+      <strong>코드베이스(이하 "회사")</strong>는 「개인정보 보호법」 제30조에 따라 정보주체의 개인정보를 보호하고 이와 관련한 고충을 신속하고 원활하게 처리할 수 있도록 하기 위하여 다음과 같이 개인정보처리방침을 수립·공개합니다.
+    </p>
+
+    <div class="toc">
+      <div class="toc-title">목차</div>
+      <ol>
+        <li><a href="#p1">개인정보의 처리 목적</a></li>
+        <li><a href="#p2">수집하는 개인정보의 항목</a></li>
+        <li><a href="#p3">개인정보의 보유 및 이용 기간</a></li>
+        <li><a href="#p4">개인정보의 제3자 제공</a></li>
+        <li><a href="#p5">개인정보 처리의 위탁</a></li>
+        <li><a href="#p6">정보주체의 권리·의무 및 행사 방법</a></li>
+        <li><a href="#p7">개인정보의 안전성 확보 조치</a></li>
+        <li><a href="#p8">개인정보 보호책임자</a></li>
+        <li><a href="#p9">개인정보처리방침의 변경</a></li>
+      </ol>
+    </div>
+
+    <h2 id="p1">제1조 (개인정보의 처리 목적)</h2>
+    <p>회사는 다음의 목적을 위하여 개인정보를 처리합니다. 처리하고 있는 개인정보는 다음의 목적 이외의 용도로는 이용되지 않으며, 이용 목적이 변경되는 경우에는 「개인정보 보호법」 제18조에 따라 별도의 동의를 받는 등 필요한 조치를 이행합니다.</p>
+    <ul>
+      <li>문의 접수 및 회신, 도입 상담, 견적 산출</li>
+      <li>프로젝트 매칭, 공급사 등록 및 관리</li>
+      <li>서비스 이용 통계 분석 및 서비스 품질 개선</li>
+      <li>법령 및 이용약관을 위반하는 행위에 대한 조치</li>
+    </ul>
+
+    <h2 id="p2">제2조 (수집하는 개인정보의 항목)</h2>
+    <p>회사는 다음과 같은 개인정보 항목을 수집합니다.</p>
+    <table>
+      <thead>
+        <tr><th>구분</th><th>수집 항목</th><th>수집 방법</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>도입 / 공급 문의</td>
+          <td>기업명, 이름, 연락처, 이메일, 문의 제목, 문의 내용</td>
+          <td>홈페이지 문의 양식</td>
+        </tr>
+        <tr>
+          <td>서비스 이용 과정</td>
+          <td>접속 IP, 쿠키, 접속 일시, 서비스 이용 기록, 브라우저 정보</td>
+          <td>자동 수집</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 id="p3">제3조 (개인정보의 보유 및 이용 기간)</h2>
+    <p>회사는 법령에 따른 개인정보 보유·이용 기간 또는 정보주체로부터 개인정보를 수집 시에 동의받은 개인정보 보유·이용 기간 내에서 개인정보를 처리·보유합니다.</p>
+    <ul>
+      <li><strong>도입/공급 문의:</strong> 문의 처리 완료 후 3년 (전자상거래법)</li>
+      <li><strong>서비스 이용 기록:</strong> 3개월 (통신비밀보호법)</li>
+      <li><strong>법령 위반 관련 분쟁:</strong> 분쟁 해결 시까지</li>
+    </ul>
+
+    <h2 id="p4">제4조 (개인정보의 제3자 제공)</h2>
+    <p>회사는 정보주체의 개인정보를 제1조에서 명시한 범위 내에서만 처리하며, 정보주체의 동의, 법률의 특별한 규정 등 「개인정보 보호법」 제17조 및 제18조에 해당하는 경우에만 개인정보를 제3자에게 제공합니다.</p>
+    <p>다만, 프로젝트 매칭 서비스 진행 과정에서 정보주체의 사전 동의를 얻은 경우에 한해 매칭된 공급사에게 필요한 정보를 제공할 수 있습니다.</p>
+
+    <h2 id="p5">제5조 (개인정보 처리의 위탁)</h2>
+    <p>회사는 원활한 개인정보 업무 처리를 위하여 다음과 같이 개인정보 처리 업무를 위탁할 수 있습니다.</p>
+    <table>
+      <thead>
+        <tr><th>수탁자</th><th>위탁 업무</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>EmailJS Inc.</td><td>문의 이메일 자동 전송</td></tr>
+        <tr><td>Google LLC</td><td>문의 데이터 저장(Google Sheets)</td></tr>
+      </tbody>
+    </table>
+
+    <h2 id="p6">제6조 (정보주체의 권리·의무 및 행사 방법)</h2>
+    <p>정보주체는 회사에 대해 언제든지 다음 각 호의 권리를 행사할 수 있습니다.</p>
+    <ol>
+      <li>개인정보 열람 요구</li>
+      <li>오류 등이 있을 경우 정정 요구</li>
+      <li>삭제 요구</li>
+      <li>처리 정지 요구</li>
+    </ol>
+    <p>제1항에 따른 권리 행사는 회사에 대해 「개인정보 보호법」 시행령 제41조 제1항에 따라 서면, 전자우편 등을 통하여 하실 수 있으며, 회사는 이에 대해 지체 없이 조치하겠습니다.</p>
+
+    <h2 id="p7">제7조 (개인정보의 안전성 확보 조치)</h2>
+    <p>회사는 개인정보의 안전성 확보를 위해 다음과 같은 조치를 취하고 있습니다.</p>
+    <ul>
+      <li>관리적 조치: 내부관리계획 수립·시행, 정기적 직원 교육</li>
+      <li>기술적 조치: 개인정보 처리시스템 접근권한 관리, 암호화, 보안프로그램 설치</li>
+      <li>물리적 조치: 전산실, 자료보관실 등의 접근 통제</li>
+    </ul>
+
+    <h2 id="p8">제8조 (개인정보 보호책임자)</h2>
+    <p>회사는 개인정보 처리에 관한 업무를 총괄해서 책임지고, 개인정보 처리와 관련한 정보주체의 불만 처리 및 피해 구제 등을 위하여 아래와 같이 개인정보 보호책임자를 지정하고 있습니다.</p>
+    <div class="info-box">
+      <strong>▸ 개인정보 보호책임자</strong><br>
+      이메일: <a href="mailto:codebase_team@code-base.co.kr">codebase_team@code-base.co.kr</a><br>
+      연락처: <a href="tel:01097415525">010-9741-5525</a><br>
+      주소: 대구광역시 수성구 알파시티1로42길 11, 태왕알파시티수성 913호
+    </div>
+
+    <h2 id="p9">제9조 (개인정보처리방침의 변경)</h2>
+    <p>이 개인정보처리방침은 시행일로부터 적용되며, 법령 및 방침에 따른 변경 내용의 추가, 삭제 및 정정이 있는 경우에는 변경사항의 시행 7일 전부터 공지사항을 통하여 고지할 것입니다.</p>
+
+    <div class="info-box" style="margin-top:2rem;border-left-color:var(--green);">
+      ▸ 본 개인정보처리방침은 표준 양식을 기반으로 작성된 초안입니다. 실제 시행 전 법무 검토를 권장합니다.
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>

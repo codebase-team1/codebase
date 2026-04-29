@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="제조 자동화 도입·공급 문의를 남겨주세요. 코드베이스가 24시간 이내 맞춤형으로 안내해드립니다.">
+<meta name="author" content="코드베이스 CODE:BASE">
+<meta name="theme-color" content="#FFFFFF">
+<title>문의하기 | CODE:BASE 코드베이스</title>
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="shortcut icon" href="favicon.ico">
+<link rel="manifest" href="site.webmanifest">
+<meta name="apple-mobile-web-app-title" content="코드베이스">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="코드베이스 CODE:BASE">
+<meta property="og:url" content="https://www.code-base.co.kr/contact.html">
+<meta property="og:title" content="문의하기 | CODE:BASE 코드베이스">
+<meta property="og:description" content="제조 자동화 도입·공급 문의를 남겨주세요. 24시간 이내 안내해드립니다.">
+<meta property="og:image" content="https://www.code-base.co.kr/og-image.png">
+<meta property="og:locale" content="ko_KR">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="문의하기 | CODE:BASE 코드베이스">
+<meta name="twitter:image" content="https://www.code-base.co.kr/og-image.png">
+
+<link rel="canonical" href="https://www.code-base.co.kr/contact.html">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Noto+Sans+KR:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg0:#FFFFFF;--bg1:#F8FAFC;--bg2:#FFFFFF;--bg3:#F1F5F9;--bg4:#E2E8F0;
+  --border:#E2E8F0;--border2:rgba(30,106,138,.35);
+  --sky:#1E6A8A;--sky2:#154A60;--cyan:#0891B2;--green:#059669;--amber:#D97706;--red:#DC2626;
+  --t1:#0F172A;--t2:#475569;--t3:#94A3B8;
+  --shadow-sm:0 1px 2px rgba(15,23,42,.04), 0 1px 1px rgba(15,23,42,.03);
+  --shadow-md:0 4px 12px rgba(15,23,42,.06), 0 2px 4px rgba(15,23,42,.04);
+  --shadow-lg:0 12px 32px rgba(15,23,42,.08), 0 4px 8px rgba(15,23,42,.05);
+  --mono:'JetBrains Mono',monospace;--head:'Barlow Condensed',sans-serif;--body:'Noto Sans KR',sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg0);color:var(--t1);font-family:var(--body);font-size:15px;line-height:1.6;overflow-x:hidden;min-height:100vh;}
+a{text-decoration:none;color:inherit}
+button,input,select,textarea{font-family:var(--body);border:none;}
+
+body::before{
+  content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:linear-gradient(rgba(30,106,138,.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(30,106,138,.04) 1px,transparent 1px);
+  background-size:44px 44px;
+}
+
+/* NAV */
+nav{
+  position:fixed;top:0;width:100%;z-index:300;height:60px;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 2rem;
+  background:rgba(255,255,255,.92);backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--border);
+  box-shadow:var(--shadow-sm);
+}
+.logo-link{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.logo-texts{display:flex;flex-direction:column;gap:1px;line-height:1.1;}
+.logo-name{font-family:var(--head);font-weight:900;font-size:1.3rem;letter-spacing:2.5px;color:var(--t1);}
+.logo-name span{color:#3B9CC4;}
+.logo-sub{font-family:var(--mono);font-size:.44rem;letter-spacing:1.8px;color:var(--t3);}
+.nav-back{
+  display:inline-flex;align-items:center;gap:6px;
+  font-family:var(--mono);font-size:.72rem;color:var(--t2);
+  border:1px solid var(--border);border-radius:4px;padding:.38rem .9rem;
+  transition:color .2s,border-color .2s;cursor:pointer;
+}
+.nav-back:hover{color:var(--sky);border-color:var(--border2);}
+
+/* WRAP */
+.wrap{max-width:1120px;margin:0 auto;padding:0 2rem;position:relative;z-index:1;}
+
+/* PAGE HERO */
+.page-hero{
+  padding:88px 0 40px;
+  background:linear-gradient(180deg,rgba(30,106,138,.05) 0%,transparent 100%);
+  border-bottom:1px solid var(--border);
+  position:relative;z-index:1;
+}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:7px;
+  font-family:var(--mono);font-size:.66rem;letter-spacing:1.5px;color:var(--sky);
+  background:rgba(30,106,138,.08);border:1px solid rgba(30,106,138,.2);
+  border-radius:3px;padding:4px 12px;margin-bottom:.85rem;
+}
+.page-hero h1{
+  font-family:var(--head);font-weight:900;
+  font-size:clamp(2rem,4vw,2.8rem);line-height:1.1;margin-bottom:.5rem;
+}
+.page-hero p{font-size:.88rem;color:var(--t2);}
+
+/* LAYOUT */
+.contact-grid{
+  display:grid;grid-template-columns:380px 1fr;
+  gap:2.5rem;padding:3rem 0 5rem;align-items:start;
+}
+
+/* ── LEFT ── */
+.phone-box{
+  background:var(--bg2);border:1px solid var(--border2);border-radius:8px;
+  padding:.9rem 1.1rem;margin-bottom:1.5rem;
+}
+.phone-box .ph-lbl{font-size:.73rem;color:var(--t3);margin-bottom:.3rem;}
+.phone-box .ph-num{
+  display:flex;align-items:center;gap:7px;
+  font-family:var(--head);font-weight:800;font-size:1.15rem;color:var(--sky);
+}
+.section-label{
+  font-family:var(--mono);font-size:.66rem;letter-spacing:1px;
+  color:var(--sky);text-transform:uppercase;margin-bottom:.75rem;
+}
+.faq-ul{list-style:none;display:flex;flex-direction:column;gap:.45rem;margin-bottom:1.75rem;}
+.faq-ul li{
+  display:flex;align-items:flex-start;gap:8px;
+  font-size:.83rem;color:var(--t2);line-height:1.55;
+  background:var(--bg2);border:1px solid var(--border);
+  border-radius:6px;padding:.55rem .7rem;
+}
+.faq-ul li::before{content:'✅';font-size:.72rem;flex-shrink:0;margin-top:1px;}
+.quote-box{
+  background:var(--bg2);border-left:2px solid var(--sky);
+  border-radius:0 6px 6px 0;padding:.9rem 1rem;margin-bottom:1.25rem;
+}
+.quote-box blockquote{font-size:.8rem;color:var(--t2);line-height:1.72;font-style:italic;margin-bottom:.4rem;}
+.quote-box cite{font-size:.7rem;color:var(--t3);font-style:normal;font-family:var(--mono);}
+.company-note{font-size:.81rem;color:var(--t2);line-height:1.65;}
+.company-note strong{color:var(--sky);}
+
+/* ── RIGHT FORM CARD ── */
+.form-card{
+  background:var(--bg2);border:1px solid var(--border);border-radius:12px;
+  overflow:hidden;position:sticky;top:76px;box-shadow:var(--shadow-md);
+}
+.form-top-bar{
+  height:3px;
+  background:linear-gradient(90deg,var(--sky),var(--cyan));
+}
+.form-inner{padding:1.75rem 1.75rem 1.5rem;}
+
+.form-grid2{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.fg{display:flex;flex-direction:column;gap:.3rem;margin-bottom:.8rem;}
+.fg:last-child{margin-bottom:0;}
+.flabel{
+  font-size:.73rem;font-weight:500;color:var(--t2);
+  display:flex;align-items:center;gap:3px;
+}
+.req{color:var(--red);font-size:.68rem;}
+.finput,.fselect,.ftextarea{
+  background:var(--bg3);border:1px solid var(--border);border-radius:6px;
+  color:var(--t1);font-size:.84rem;padding:.58rem .8rem;
+  outline:none;width:100%;transition:border-color .2s,background .2s;
+}
+.finput:focus,.fselect:focus,.ftextarea:focus{
+  border-color:var(--sky);background:#fff;box-shadow:0 0 0 3px rgba(30,106,138,.1);
+}
+.finput::placeholder,.ftextarea::placeholder{color:var(--t3);font-size:.82rem;}
+.finput.err,.fselect.err,.ftextarea.err{border-color:var(--red)!important;}
+.fhint{font-size:.66rem;color:var(--t3);}
+.fhint.e{color:var(--red);}
+.fselect{
+  appearance:none;cursor:pointer;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='7' viewBox='0 0 11 7'%3E%3Cpath d='M1 1l4.5 4.5L10 1' stroke='%2394A3B8' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right .8rem center;padding-right:2rem;
+}
+.fselect option{background:var(--bg3);color:var(--t1);}
+.ftextarea{min-height:115px;resize:vertical;line-height:1.6;}
+.char-row{display:flex;justify-content:space-between;align-items:center;}
+.ccount{font-size:.63rem;color:var(--t3);font-family:var(--mono);}
+.ccount.warn{color:var(--amber);}.ccount.over{color:var(--red);}
+
+.agree-row{display:flex;align-items:flex-start;gap:8px;margin:.85rem 0 1rem;cursor:pointer;}
+.agree-cb{width:16px;height:16px;flex-shrink:0;margin-top:2px;accent-color:var(--sky);cursor:pointer;}
+.agree-lbl{font-size:.77rem;color:var(--t2);line-height:1.55;cursor:pointer;}
+.agree-lbl a{color:var(--sky);border-bottom:1px solid rgba(30,106,138,.3);}
+
+.submit-btn{
+  width:100%;padding:.82rem;border-radius:6px;cursor:pointer;
+  font-family:var(--head);font-size:1.05rem;font-weight:700;letter-spacing:1px;
+  background:var(--sky);color:#fff;border:none;
+  transition:box-shadow .2s,transform .15s,background .2s,opacity .2s;
+  box-shadow:0 6px 16px rgba(30,106,138,.25);
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  position:relative;overflow:hidden;
+}
+.submit-btn:hover:not(:disabled){
+  background:var(--sky2);box-shadow:0 10px 24px rgba(30,106,138,.4);transform:translateY(-1px);
+}
+.submit-btn:disabled{
+  background:var(--bg3);color:var(--t3);cursor:not-allowed;
+  box-shadow:none;transform:none;
+}
+/* 로딩 중 버튼 스타일 */
+.submit-btn.loading{
+  background:var(--bg3);color:var(--t2);cursor:not-allowed;
+  box-shadow:none;opacity:1;
+}
+/* shimmer sweep 효과 */
+.submit-btn.loading::after{
+  content:'';
+  position:absolute;inset:0;
+  background:linear-gradient(90deg,transparent 0%,rgba(255,255,255,.06) 50%,transparent 100%);
+  animation:shimmer 1.4s infinite;
+}
+@keyframes shimmer{
+  0%{transform:translateX(-100%)}
+  100%{transform:translateX(100%)}
+}
+
+/* ── Spinner ── */
+.spinner{
+  display:none;
+  width:16px;height:16px;flex-shrink:0;
+  border:2px solid rgba(148,163,184,.25);
+  border-top-color:var(--sky);
+  border-radius:50%;
+  animation:spin .7s linear infinite;
+}
+.submit-btn.loading .spinner{display:block;}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* SUCCESS */
+.success-view{
+  display:none;flex-direction:column;align-items:center;
+  text-align:center;padding:3rem 1.5rem;
+}
+.success-view.on{display:flex;}
+.s-icon{font-size:3.2rem;margin-bottom:1rem;}
+.success-view h3{font-family:var(--head);font-weight:900;font-size:1.7rem;color:var(--green);margin-bottom:.5rem;}
+.success-view p{font-size:.85rem;color:var(--t2);line-height:1.75;margin-bottom:1.25rem;}
+.s-id{
+  font-family:var(--mono);font-size:.7rem;color:var(--sky);
+  background:rgba(30,106,138,.08);border:1px solid rgba(30,106,138,.2);
+  border-radius:4px;padding:.4rem 1.1rem;margin-bottom:1.5rem;
+}
+.s-home-btn{
+  font-family:var(--mono);font-size:.75rem;font-weight:600;cursor:pointer;
+  background:transparent;border:1px solid var(--border2);color:var(--sky);
+  padding:.55rem 1.4rem;border-radius:4px;transition:background .2s;
+}
+.s-home-btn:hover{background:rgba(30,106,138,.08);}
+
+/* INQUIRY COUNT BADGE */
+.inq-badge{
+  position:fixed;bottom:1.5rem;right:1.5rem;z-index:400;
+  display:none;align-items:center;gap:7px;
+  background:var(--bg2);border:1px solid var(--border2);border-radius:8px;
+  padding:.55rem 1rem;font-family:var(--mono);font-size:.68rem;color:var(--sky);
+  box-shadow:var(--shadow-lg);cursor:pointer;
+  transition:transform .15s;
+}
+.inq-badge:hover{transform:translateY(-2px);}
+.inq-badge.on{display:flex;}
+
+/* ── 인라인 에러 메시지 ── */
+.ferr{
+  display:none;font-size:.68rem;color:var(--red);
+  font-family:var(--mono);letter-spacing:.2px;
+  margin-top:3px;line-height:1.4;
+  align-items:center;gap:3px;
+}
+.ferr::before{content:'⚠ ';}
+.ferr.show{display:flex;}
+.finput.err,.fselect.err,.ftextarea.err{
+  border-color:var(--red)!important;
+  background:rgba(220,38,38,.04)!important;
+  animation:shake .32s ease;
+}
+.finput.ok,.fselect.ok,.ftextarea.ok{
+  border-color:var(--green)!important;
+}
+@keyframes shake{
+  0%,100%{transform:translateX(0)}
+  20%{transform:translateX(-5px)}
+  40%{transform:translateX(5px)}
+  60%{transform:translateX(-4px)}
+  80%{transform:translateX(4px)}
+}
+
+/* ── 성공 모달 — 아래 두 번째 정의가 적용됩니다 ── */
+
+/* ════════════════════════════════
+   성공 모달 (Success Modal)
+════════════════════════════════ */
+/* 오버레이 배경 */
+.modal-overlay{
+  position:fixed;inset:0;z-index:600;
+  display:none;align-items:center;justify-content:center;
+  padding:1.5rem;
+  background:rgba(15,23,42,.55);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+}
+.modal-overlay.show{display:flex;}
+
+/* 모달 박스 */
+.modal-box{
+  background:var(--bg2);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:2.75rem 2rem 2rem;
+  text-align:center;
+  width:100%;max-width:420px;
+  position:relative;
+  box-shadow:var(--shadow-lg);
+  animation:modalIn .4s cubic-bezier(.34,1.5,.64,1) both;
+}
+@keyframes modalIn{
+  from{opacity:0;transform:translateY(32px) scale(.9)}
+  to  {opacity:1;transform:translateY(0)    scale(1)}
+}
+
+/* 상단 그라데이션 라인 */
+.modal-box::before{
+  content:'';
+  position:absolute;top:0;left:0;right:0;height:3px;
+  border-radius:16px 16px 0 0;
+  background:linear-gradient(90deg,var(--sky),var(--cyan),var(--green));
+}
+
+/* 체크 아이콘 원형 */
+.modal-icon{
+  width:72px;height:72px;
+  border-radius:50%;
+  background:rgba(5,150,105,.12);
+  border:2px solid rgba(5,150,105,.3);
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 1.25rem;
+  font-size:2rem;
+  animation:iconPop .5s .15s cubic-bezier(.34,1.6,.64,1) both;
+}
+@keyframes iconPop{
+  from{transform:scale(0);opacity:0}
+  to  {transform:scale(1);opacity:1}
+}
+
+/* 타이틀 */
+.modal-title{
+  font-family:var(--head);font-weight:900;
+  font-size:1.75rem;color:var(--t1);
+  margin-bottom:.5rem;line-height:1.15;
+}
+
+/* 서브 텍스트 */
+.modal-sub{
+  font-size:.87rem;color:var(--t2);
+  line-height:1.72;margin-bottom:1.25rem;
+}
+.modal-sub strong{color:var(--sky);}
+
+/* 접수번호 뱃지 */
+.modal-id{
+  display:inline-block;
+  font-family:var(--mono);font-size:.7rem;
+  color:var(--sky);letter-spacing:.5px;
+  background:rgba(30,106,138,.08);
+  border:1px solid rgba(30,106,138,.22);
+  border-radius:5px;padding:.4rem 1.1rem;
+  margin-bottom:1.75rem;
+}
+
+/* 구분선 */
+.modal-divider{
+  border:none;border-top:1px solid var(--border);
+  margin-bottom:1.5rem;
+}
+
+/* 확인 버튼 */
+.modal-confirm-btn{
+  width:100%;padding:.85rem;
+  border:none;border-radius:8px;cursor:pointer;
+  font-family:var(--head);font-weight:700;
+  font-size:1.05rem;letter-spacing:.8px;
+  color:#fff;background:var(--sky);
+  transition:box-shadow .2s,transform .15s,background .2s;
+  box-shadow:0 6px 16px rgba(30,106,138,.25);
+  display:flex;align-items:center;justify-content:center;gap:8px;
+}
+.modal-confirm-btn:hover{
+  background:var(--sky2);
+  box-shadow:0 10px 24px rgba(30,106,138,.4);
+  transform:translateY(-1px);
+}
+.modal-confirm-btn:active{transform:translateY(0);}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .contact-grid{grid-template-columns:1fr;gap:2rem;}
+  .form-card{position:static;}
+}
+@media(max-width:560px){
+  nav,.wrap{padding-left:1.25rem;padding-right:1.25rem;}
+  .form-grid2{grid-template-columns:1fr;}
+  .form-inner{padding:1.25rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="logo-link">
+    <img src="logo.png" alt="코드베이스 CODE:BASE" style="height:34px;width:auto;display:block;" />
+  </a>
+  <a href="index.html" class="nav-back">← 홈으로</a>
+</nav>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="wrap">
+    <div class="eyebrow">도입 / 공급 문의 안내</div>
+    <h1>제조 자동화를 위한<br>맞춤 솔루션이 필요하신가요?</h1>
+    <p>아래와 같이 궁금한 점이 있다면 문의 주세요. 코드베이스가 맞춤형으로 안내해드립니다.</p>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="wrap">
+  <div class="contact-grid">
+
+    <!-- LEFT -->
+    <div>
+      <div class="phone-box">
+        <div class="ph-lbl">즉시 전화 상담이 필요하신가요? · 제조 자동화 전문가</div>
+        <div class="ph-num">📞 010-9741-5525</div>
+      </div>
+
+      <div class="section-label">최근 공통 문의 내용</div>
+      <ul class="faq-ul">
+        <li>노후화 공정에 적합한 공급사 추천</li>
+        <li>우리 기업에 적용 가능한 도입 사례 조회</li>
+        <li>정부지원사업 프로젝트 등록 가능 여부</li>
+        <li>프로젝트 등록 절차·기간·비용 견적 안내</li>
+        <li>제작을 희망하는 설비·기술 검토</li>
+      </ul>
+
+      <div class="quote-box">
+        <blockquote>
+          "자동화 설비를 도입하려고 했지만, 어디서부터 시작해야 할지 막막했어요.
+          코드베이스 매칭 서비스를 통해 여러 업체의 도입 사례와 비교가 가능했고,
+          저희 환경에 맞는 최적의 솔루션을 빠르게 찾을 수 있었습니다."
+        </blockquote>
+        <cite>— D사 공정개발팀</cite>
+      </div>
+
+      <p class="company-note">
+        공급사와 수요사 <strong>30여개 기업들이 코드베이스</strong>와 함께 합니다.
+      </p>
+    </div>
+
+    <!-- RIGHT FORM -->
+    <div class="form-card">
+      <div class="form-top-bar"></div>
+      <div class="form-inner">
+
+        <!-- FORM -->
+        <form id="cf" novalidate>
+          <div class="form-grid2">
+            <div class="fg">
+              <label class="flabel" for="f-type">문의 유형 <span class="req">*</span></label>
+              <select class="fselect" id="f-type" name="f-type" required>
+                <option value="">문의 유형을 선택해주세요.</option>
+                <option>스마트HACCP 도입 문의</option>
+                <option>AI 머신비전 도입 문의</option>
+                <option>MES 컨트롤타워 도입 문의</option>
+                <option>자동화 로봇 도입 문의</option>
+                <option>프로젝트 매칭 문의</option>
+                <option>공급사 등록 문의</option>
+                <option>정부지원사업 문의</option>
+                <option>기타 문의</option>
+              </select>
+              <span class="fhint">유형 선택 시 더 빠르게 안내해드립니다.</span>
+              <span class="ferr" id="err-f-type"></span>
+            </div>
+            <div class="fg">
+              <label class="flabel" for="f-company">기업명 <span class="req">*</span></label>
+              <input class="finput" id="f-company" name="f-company" type="text" placeholder="회사명을 입력해주세요." maxlength="20" required>
+              <span class="fhint">2자 이상 20자 이하</span>
+              <span class="ferr" id="err-f-company"></span>
+            </div>
+          </div>
+
+          <div class="form-grid2">
+            <div class="fg">
+              <label class="flabel" for="f-name">이름 <span class="req">*</span></label>
+              <input class="finput" id="f-name" name="f-name" type="text" placeholder="이름을 입력해주세요." maxlength="20" required>
+              <span class="fhint">2자 이상 20자 이하</span>
+              <span class="ferr" id="err-f-name"></span>
+            </div>
+            <div class="fg">
+              <label class="flabel" for="f-tel">연락처 <span class="req">*</span></label>
+              <input class="finput" id="f-tel" name="f-tel" type="tel" placeholder="01012345678" maxlength="11" required>
+              <span class="fhint">숫자만 입력 · 10~11자리</span>
+              <span class="ferr" id="err-f-tel"></span>
+            </div>
+          </div>
+
+          <div class="fg">
+            <label class="flabel" for="f-email">이메일 <span class="req">*</span></label>
+            <input class="finput" id="f-email" name="f-email" type="email" placeholder="이메일을 입력해주세요." required>
+            <span class="fhint">예) example@code-base.co.kr</span>
+            <span class="ferr" id="err-f-email"></span>
+          </div>
+
+          <div class="fg">
+            <label class="flabel" for="f-subject">문의 제목 <span class="req">*</span></label>
+            <input class="finput" id="f-subject" name="f-subject" type="text" placeholder="제목을 작성해주세요." maxlength="50" required>
+            <div class="char-row">
+              <span class="ferr" id="err-f-subject"></span>
+              <span class="ccount" id="sc">0 / 50</span>
+            </div>
+          </div>
+
+          <div class="fg">
+            <label class="flabel" for="f-body">문의 내용 <span class="req">*</span></label>
+            <textarea class="ftextarea" id="f-body" name="f-body" placeholder="자세히 안내받고 싶은 내용을 입력해주세요." maxlength="1000" required></textarea>
+            <div class="char-row">
+              <span class="ferr" id="err-f-body"></span>
+              <span class="ccount" id="cc">0 / 1000</span>
+            </div>
+          </div>
+
+          <div class="agree-row">
+            <input class="agree-cb" type="checkbox" id="agree">
+            <label class="agree-lbl" for="agree">
+              <a href="terms.html" target="_blank" rel="noopener">이용약관</a> 및
+              <a href="privacy.html" target="_blank" rel="noopener">개인정보처리방침</a>에 동의합니다.
+              <span class="req">*</span>
+            </label>
+          </div>
+          <span class="ferr" id="err-agree" style="display:block;margin-top:-.5rem;margin-bottom:.5rem;"></span>
+
+          <button class="submit-btn" type="submit" id="submitBtn" disabled>
+            <span class="spinner" id="btnSpinner"></span>
+            <span id="btnText">제출하기</span>
+          </button>
+        </form>
+
+        <!-- SUCCESS -->
+        <div class="success-view" id="sv">
+          <div class="s-icon">✅</div>
+          <h3>문의가 접수되었습니다!</h3>
+          <p>담당자가 확인 후 <strong style="color:var(--sky)">24시간 이내</strong>에<br>입력하신 연락처로 연락드리겠습니다.</p>
+          <div class="s-id" id="sid">접수번호: CB-XXXXXXXX</div>
+          <button class="s-home-btn" onclick="location.href='index.html'">← 홈으로 돌아가기</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SAVED BADGE -->
+<div class="inq-badge" id="inqBadge">
+  📋 저장된 문의 <span id="inqCount">0</span>건
+</div>
+
+<!-- ══ EmailJS SDK ══ -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<!-- ════ 성공 모달 (Success Modal) ════ -->
+<div class="modal-overlay" id="successModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-box">
+    <div class="modal-icon">✅</div>
+    <div class="modal-title" id="modalTitle">문의가 접수되었습니다</div>
+    <p class="modal-sub">
+      담당자가 확인 후<br>
+      <strong>24시간 이내</strong>에 연락드리겠습니다.
+    </p>
+    <div class="modal-id" id="modalInquiryId">접수번호: CB-XXXXXXXX</div>
+    <hr class="modal-divider">
+    <button class="modal-confirm-btn" id="modalConfirmBtn">
+      확인 <span style="font-size:.9rem">→</span>
+    </button>
+  </div>
+</div>
+
+<script>
+/* ══════════════════════════════════════════════════════════
+   ⚙️  설정값 — 실제 키/ID/URL로 교체하세요
+   ══════════════════════════════════════════════════════════
+   [EmailJS]
+   PUBLIC_KEY  : https://dashboard.emailjs.com/admin/account
+   SERVICE_ID  : https://dashboard.emailjs.com/admin (Email Services)
+   TEMPLATE_ID : https://dashboard.emailjs.com/admin/templates
+
+   [Google Sheets]
+   SHEETS_URL  : Apps Script 웹 앱 배포 URL
+                 (배포 > 새 배포 > 유형: 웹 앱 > URL 복사)
+
+   ─ Apps Script 코드 (Google Sheets에 붙여넣기) ─────────
+   function doPost(e) {
+     try {
+       const raw   = e.postData.contents;
+       const data  = JSON.parse(raw);
+       const sheet = SpreadsheetApp.getActiveSpreadsheet()
+                       .getActiveSheet();
+       if (sheet.getLastRow() === 0) {
+         sheet.appendRow(['접수번호','접수일시','문의유형','기업명',
+                          '이름','연락처','이메일','제목','내용']);
+       }
+       sheet.appendRow([
+         data['f-id'],      data['f-date'],    data['f-type'],
+         data['f-company'], data['f-name'],     data['f-tel'],
+         data['f-email'],   data['f-subject'],  data['f-body']
+       ]);
+       return ContentService
+         .createTextOutput(JSON.stringify({ result:'success' }))
+         .setMimeType(ContentService.MimeType.JSON);
+     } catch(err) {
+       return ContentService
+         .createTextOutput(JSON.stringify({ result:'error', msg: err.message }))
+         .setMimeType(ContentService.MimeType.JSON);
+     }
+   }
+   ────────────────────────────────────────────────────────
+   배포 설정:
+   · 다음 사용자로 실행: 나 (본인 Google 계정)
+   · 액세스 권한: 모든 사용자 (익명 포함)
+   · 코드 수정 후엔 반드시 "새 배포" (기존 배포 수정 X)
+══════════════════════════════════════════════════════════ */
+const EMAILJS_PUBLIC_KEY  = 'j77GMc7MNuGXDHrkS';
+const EMAILJS_SERVICE_ID  = 'service_soizp2s';
+const EMAILJS_TEMPLATE_ID = 'template_756zzw9';
+/* Sheets 연동은 선택사항. 사용 시 Apps Script 배포 후 이 값을 교체하면 자동 활성화됩니다. */
+const SHEETS_URL          = 'YOUR_APPS_SCRIPT_URL';
+
+/* ── EmailJS v4 초기화 (문자열 직접 전달 — 최신 방식) ── */
+emailjs.init(EMAILJS_PUBLIC_KEY);
+
+/* ════════════════════════════════════════════════════════
+   URL 파라미터 → 문의 유형 자동 선택
+   ────────────────────────────────────────────────────────
+   파라미터 매핑표:
+   ?type=demo     → 무료 데모 신청 (기본 문의)
+   ?type=consult  → 무료 상담 신청
+   ?type=platform → 플랫폼 문의
+   ?type=vision   → AI 머신비전 도입 문의
+   ?type=haccp    → 스마트HACCP 도입 문의
+   ?type=mes      → MES 컨트롤타워 도입 문의
+   ?type=robot    → 자동화 로봇 도입 문의
+════════════════════════════════════════════════════════ */
+(function applyUrlParams() {
+  const params = new URLSearchParams(window.location.search);
+  const type   = params.get('type');
+  if (!type) return;
+
+  /* type → select option 값 매핑 */
+  const TYPE_MAP = {
+    'demo':     '기타 문의',
+    'consult':  '기타 문의',
+    'platform': '프로젝트 매칭 문의',
+    'vision':   'AI 머신비전 도입 문의',
+    'haccp':    '스마트HACCP 도입 문의',
+    'mes':      'MES 컨트롤타워 도입 문의',
+    'robot':    '자동화 로봇 도입 문의',
+  };
+
+  /* 페이지 상단 eyebrow 문구 매핑 */
+  const LABEL_MAP = {
+    'demo':     '무료 데모 신청',
+    'consult':  '무료 상담 신청',
+    'platform': '플랫폼 문의',
+    'vision':   'AI 머신비전 도입 문의',
+    'haccp':    '스마트HACCP 도입 문의',
+    'mes':      'MES 컨트롤타워 도입 문의',
+    'robot':    '자동화 로봇 도입 문의',
+  };
+
+  const mapped = TYPE_MAP[type];
+  const label  = LABEL_MAP[type];
+
+  /* ① select 자동 선택 */
+  if (mapped) {
+    const sel = document.getElementById('f-type');
+    for (const opt of sel.options) {
+      if (opt.text === mapped) { opt.selected = true; break; }
+    }
+  }
+
+  /* ② eyebrow 배지 업데이트 */
+  if (label) {
+    const eyebrow = document.querySelector('.eyebrow');
+    if (eyebrow) eyebrow.textContent = label;
+  }
+
+  /* ③ 페이지 타이틀 업데이트 */
+  if (label) {
+    document.title = label + ' | CODE:BASE 코드베이스';
+  }
+})();
+
+/* ── 유틸 ── */
+const $id   = id => document.getElementById(id);
+const genId = ()  => 'CB-' + Date.now().toString(36).toUpperCase().slice(-8);
+
+/* ════════════════════════════════
+   VALIDATION RULES
+   각 필드별 규칙 + 에러 메시지 정의
+════════════════════════════════ */
+const RULES = [
+  {
+    id: 'f-type',
+    checks: [
+      { test: v => v !== '',  msg: '문의 유형을 선택해주세요.' },
+    ]
+  },
+  {
+    id: 'f-company',
+    checks: [
+      { test: v => v.trim().length > 0,   msg: '기업명을 입력해주세요.' },
+      { test: v => v.trim().length >= 2,  msg: '기업명은 2자 이상 입력해주세요.' },
+      { test: v => v.trim().length <= 20, msg: '기업명은 20자 이하로 입력해주세요.' },
+    ]
+  },
+  {
+    id: 'f-name',
+    checks: [
+      { test: v => v.trim().length > 0,   msg: '이름을 입력해주세요.' },
+      { test: v => v.trim().length >= 2,  msg: '이름은 2자 이상 입력해주세요.' },
+      { test: v => v.trim().length <= 20, msg: '이름은 20자 이하로 입력해주세요.' },
+    ]
+  },
+  {
+    id: 'f-tel',
+    checks: [
+      { test: v => v.trim().length > 0,   msg: '연락처를 입력해주세요.' },
+      { test: v => /^\d+$/.test(v),        msg: '숫자만 입력해주세요.' },
+      { test: v => v.length >= 10,         msg: '최소 10자리 이상 입력해주세요.' },
+      { test: v => v.length <= 11,         msg: '11자리 이하로 입력해주세요.' },
+      { test: v => /^0\d{9,10}$/.test(v),  msg: '올바른 전화번호 형식이 아닙니다. (예: 01012345678)' },
+    ]
+  },
+  {
+    id: 'f-email',
+    checks: [
+      { test: v => v.trim().length > 0,                       msg: '이메일을 입력해주세요.' },
+      { test: v => v.includes('@'),                           msg: '이메일에 @ 기호가 필요합니다.' },
+      { test: v => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v), msg: '올바른 이메일 형식을 입력해주세요.' },
+    ]
+  },
+  {
+    id: 'f-subject',
+    checks: [
+      { test: v => v.trim().length > 0,   msg: '문의 제목을 입력해주세요.' },
+      { test: v => v.trim().length >= 2,  msg: '제목은 2자 이상 입력해주세요.' },
+      { test: v => v.trim().length <= 50, msg: '제목은 50자 이하로 입력해주세요.' },
+    ]
+  },
+  {
+    id: 'f-body',
+    checks: [
+      { test: v => v.trim().length > 0,     msg: '문의 내용을 입력해주세요.' },
+      { test: v => v.trim().length >= 10,   msg: '내용을 10자 이상 입력해주세요.' },
+      { test: v => v.trim().length <= 1000, msg: '내용은 1000자 이하로 입력해주세요.' },
+    ]
+  },
+];
+
+/* ── 에러 표시 / 해제 헬퍼 ── */
+function showErr(id, msg) {
+  const el = $id(id), err = $id('err-' + id);
+  el.classList.add('err'); el.classList.remove('ok');
+  if (err) { err.textContent = msg; err.classList.add('show'); }
+}
+function clearErr(id) {
+  const el = $id(id), err = $id('err-' + id);
+  el.classList.remove('err');
+  if (err) { err.textContent = ''; err.classList.remove('show'); }
+}
+function markOk(id) {
+  const el = $id(id), err = $id('err-' + id);
+  el.classList.remove('err'); el.classList.add('ok');
+  if (err) { err.textContent = ''; err.classList.remove('show'); }
+}
+
+/* ── 단일 필드 검사 ── */
+function validateField(id) {
+  const rule = RULES.find(r => r.id === id);
+  if (!rule) return true;
+  const val = $id(id).value;
+  for (const { test, msg } of rule.checks) {
+    if (!test(val)) { showErr(id, msg); return false; }
+  }
+  markOk(id); return true;
+}
+
+/* ── 전체 유효성 검사 ── */
+function validateAll() {
+  let ok = true, firstErrEl = null;
+  RULES.forEach(({ id, checks }) => {
+    const val = $id(id).value;
+    let fieldOk = true;
+    for (const { test, msg } of checks) {
+      if (!test(val)) { showErr(id, msg); fieldOk = false; if (!firstErrEl) firstErrEl = $id(id); break; }
+    }
+    if (fieldOk) markOk(id);
+    if (!fieldOk) ok = false;
+  });
+  if (!$id('agree').checked) {
+    const ae = $id('err-agree');
+    if (ae) { ae.textContent = '이용약관 및 개인정보처리방침에 동의해주세요.'; ae.classList.add('show'); }
+    ok = false;
+    if (!firstErrEl) firstErrEl = $id('agree');
+  } else {
+    const ae = $id('err-agree');
+    if (ae) { ae.textContent = ''; ae.classList.remove('show'); }
+  }
+  if (firstErrEl) firstErrEl.scrollIntoView({ behavior:'smooth', block:'center' });
+  return ok;
+}
+
+/* ── 실시간 blur / input 검사 바인딩 ── */
+RULES.forEach(({ id }) => {
+  const el = $id(id);
+  el.addEventListener('blur',   () => validateField(id));
+  el.addEventListener('input',  () => { if (el.classList.contains('err')) validateField(id); });
+  el.addEventListener('change', () => { if (el.classList.contains('err')) validateField(id); });
+});
+
+/* ── 전화번호 숫자만 ── */
+$id('f-tel').addEventListener('input', e => {
+  const pos = e.target.selectionStart;
+  e.target.value = e.target.value.replace(/\D/g, '');
+  e.target.setSelectionRange(pos, pos);
+});
+
+/* ── 글자수 카운터 ── */
+function bindCount(inputId, countId, max) {
+  const el = $id(inputId), cnt = $id(countId);
+  el.addEventListener('input', () => {
+    const n = el.value.length;
+    cnt.textContent = n + ' / ' + max;
+    cnt.className = 'ccount' + (n >= max ? ' over' : n > max * .85 ? ' warn' : '');
+  });
+}
+bindCount('f-subject', 'sc', 50);
+bindCount('f-body',    'cc', 1000);
+
+/* ── 동의 체크 ── */
+$id('agree').addEventListener('change', () => {
+  $id('submitBtn').disabled = !$id('agree').checked;
+  const ae = $id('err-agree');
+  if ($id('agree').checked && ae) { ae.textContent = ''; ae.classList.remove('show'); }
+});
+
+/* ── 버튼 로딩 상태 ── */
+function setLoading(active) {
+  const btn = $id('submitBtn'), text = $id('btnText');
+  if (active) {
+    btn.disabled = true; btn.classList.add('loading'); text.textContent = '전송 중...';
+  } else {
+    btn.disabled = !$id('agree').checked; btn.classList.remove('loading'); text.textContent = '제출하기';
+  }
+}
+
+/* ── 인라인 에러 토스트 (alert 대신 폼 아래 표시) ── */
+function showToast(type, msg) {
+  let toast = $id('formToast');
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.id = 'formToast';
+    toast.style.cssText = [
+      'margin-top:.85rem;padding:.75rem 1rem;border-radius:6px',
+      'font-size:.8rem;font-family:var(--mono);line-height:1.55',
+      'display:flex;align-items:flex-start;gap:8px',
+      'animation:fadeIn .25s ease',
+    ].join(';');
+    $id('submitBtn').insertAdjacentElement('afterend', toast);
+  }
+  if (type === 'error') {
+    toast.style.background = 'rgba(239,68,68,.08)';
+    toast.style.border = '1px solid rgba(239,68,68,.3)';
+    toast.style.color = '#FCA5A5';
+    toast.innerHTML = '⚠ ' + msg;
+  } else {
+    toast.style.background = 'rgba(16,185,129,.08)';
+    toast.style.border = '1px solid rgba(16,185,129,.3)';
+    toast.style.color = '#6EE7B7';
+    toast.innerHTML = '✓ ' + msg;
+  }
+  toast.style.display = 'flex';
+  clearTimeout(toast._timer);
+  if (type !== 'error') toast._timer = setTimeout(() => { toast.style.display = 'none'; }, 5000);
+}
+function hideToast() {
+  const t = $id('formToast');
+  if (t) t.style.display = 'none';
+}
+
+/* ════════════════════════════════
+   성공 모달 제어
+════════════════════════════════ */
+function showSuccessModal(inquiryId) {
+  /* 1) 접수번호 삽입 */
+  $id('modalInquiryId').textContent = '접수번호: ' + inquiryId;
+
+  /* 2) 모달 표시 */
+  const modal = $id('successModal');
+  modal.classList.add('show');
+
+  /* 3) 확인 버튼 클릭 → 메인 페이지 이동 */
+  $id('modalConfirmBtn').onclick = () => {
+    modal.classList.remove('show');
+    location.href = 'index.html';
+  };
+
+  /* 4) 오버레이 클릭(박스 바깥) → 동일하게 이동 */
+  modal.addEventListener('click', function onOverlayClick(e) {
+    if (e.target === modal) {
+      modal.removeEventListener('click', onOverlayClick);
+      modal.classList.remove('show');
+      location.href = 'index.html';
+    }
+  });
+
+  /* 5) ESC 키 → 이동 */
+  document.addEventListener('keydown', function onEsc(e) {
+    if (e.key === 'Escape') {
+      document.removeEventListener('keydown', onEsc);
+      modal.classList.remove('show');
+      location.href = 'index.html';
+    }
+  });
+
+  /* 6) 모달 내 확인 버튼에 포커스 (접근성) */
+  setTimeout(() => $id('modalConfirmBtn').focus(), 100);
+}
+
+/* ════════════════════════════════════════════════════════
+   Google Sheets 연동 여부 (선택사항)
+   ─ SHEETS_URL이 placeholder인 경우 호출을 건너뜁니다 → 메일 전송만 활성화
+════════════════════════════════════════════════════════ */
+const SHEETS_ENABLED = !!SHEETS_URL && SHEETS_URL !== 'YOUR_APPS_SCRIPT_URL';
+
+/* ════════════════════════════════════════════════════════
+   Google Sheets POST
+   ─ no-cors 모드 필수 (Apps Script CORS 제한)
+   ─ body는 반드시 JSON.stringify → Content-Type text/plain
+     (no-cors에서 application/json은 preflight 발생 → 차단)
+════════════════════════════════════════════════════════ */
+async function postToSheets(data) {
+  /* no-cors: 응답 body 접근 불가(opaque response) → fetch resolve 자체가 성공 신호 */
+  await fetch(SHEETS_URL, {
+    method:  'POST',
+    headers: { 'Content-Type': 'text/plain;charset=utf-8' }, // ← no-cors 허용 헤더
+    body:    JSON.stringify(data),
+    mode:    'no-cors',
+  });
+}
+
+/* ════════════════════════════════════════════════════════
+   EmailJS 전송
+   ─ emailjs.init()은 문자열 직접 전달 (v4 최신 방식)
+   ─ send() 반환값: { status: 200, text: 'OK' }
+   ─ to_email 파라미터로 수신자 고정
+════════════════════════════════════════════════════════ */
+async function sendEmail(data) {
+  if (!EMAILJS_PUBLIC_KEY || EMAILJS_PUBLIC_KEY === 'YOUR_PUBLIC_KEY') {
+    throw new Error('EmailJS Public Key가 설정되지 않았습니다.');
+  }
+  const res = await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, data);
+  if (res.status !== 200) throw new Error('EmailJS 응답 오류: ' + res.text);
+  return res;
+}
+
+/* ── 폼 제출 — Sheets 저장 + Email 전송 병렬 ── */
+$id('cf').addEventListener('submit', async e => {
+  e.preventDefault();
+  hideToast();
+
+  /* 1) 유효성 검사 */
+  if (!validateAll()) return;
+
+  /* 2) 로딩 ON */
+  setLoading(true);
+
+  /* 3) 접수번호 · 일시 생성 */
+  const inquiryId   = genId();
+  const inquiryDate = new Date().toLocaleString('ko-KR', {
+    year:'numeric', month:'2-digit', day:'2-digit',
+    hour:'2-digit', minute:'2-digit'
+  });
+
+  /* 4) 전송 데이터 조립 */
+  const payload = {
+    'f-id':      inquiryId,
+    'f-date':    inquiryDate,
+    'f-type':    $id('f-type').value,
+    'f-company': $id('f-company').value.trim(),
+    'f-name':    $id('f-name').value.trim(),
+    'f-tel':     $id('f-tel').value.trim(),
+    'f-email':   $id('f-email').value.trim(),
+    'f-subject': $id('f-subject').value.trim(),
+    'f-body':    $id('f-body').value.trim(),
+    'to_email':  'codebase_team@code-base.co.kr',
+  };
+
+  /* 5) 병렬 전송 (allSettled → 둘 중 하나 실패해도 계속 진행)
+        Sheets는 선택사항: 미설정 시 자동으로 성공으로 간주(=스킵) */
+  const [emailResult, sheetsResult] = await Promise.allSettled([
+    sendEmail(payload),
+    SHEETS_ENABLED ? postToSheets(payload) : Promise.resolve({ skipped: true }),
+  ]);
+
+  const emailOk  = emailResult.status  === 'fulfilled';
+  const sheetsOk = sheetsResult.status === 'fulfilled';
+
+  /* 디버그 로그 */
+  console.group('📬 문의 전송 결과');
+  console.log('📧 Email :', emailOk  ? '✅ 성공' : '❌ ' + (emailResult.reason?.text || emailResult.reason?.message));
+  if (SHEETS_ENABLED) {
+    console.log('📊 Sheets:', sheetsOk ? '✅ 성공' : '❌ ' + sheetsResult.reason?.message);
+  } else {
+    console.log('📊 Sheets: ⏭ 스킵 (SHEETS_URL 미설정)');
+  }
+  console.groupEnd();
+
+  /* 6) 결과 분기 처리 */
+  if (sheetsOk && emailOk) {
+    /* ✅ 모두 성공 */
+    try { localStorage.setItem('inquiry:' + inquiryId, JSON.stringify(payload)); } catch (_) {}
+    setLoading(false);
+    showSuccessModal(inquiryId);
+
+  } else if (sheetsOk && !emailOk) {
+    /* ⚠ Sheets 성공 / 이메일 실패 → 접수 완료로 처리 */
+    try { localStorage.setItem('inquiry:' + inquiryId, JSON.stringify(payload)); } catch (_) {}
+    setLoading(false);
+    showSuccessModal(inquiryId);
+    console.warn('이메일 전송 실패 (Sheets 저장 완료):', emailResult.reason);
+
+  } else if (!sheetsOk && emailOk) {
+    /* ⚠ 이메일 성공 / Sheets 실패 → 접수 완료로 처리 */
+    try { localStorage.setItem('inquiry:' + inquiryId, JSON.stringify(payload)); } catch (_) {}
+    setLoading(false);
+    showSuccessModal(inquiryId);
+    console.warn('Sheets 저장 실패 (이메일 전송 완료):', sheetsResult.reason);
+
+  } else {
+    /* ❌ 둘 다 실패 → 로딩 해제 + 인라인 에러 토스트 */
+    setLoading(false);
+
+    const sheetsMsg = sheetsResult.reason?.message || String(sheetsResult.reason);
+    const emailMsg  = emailResult.reason?.text     ||
+                      emailResult.reason?.message  ||
+                      String(emailResult.reason);
+
+    showToast('error',
+      '전송에 실패했습니다. 잠시 후 다시 시도하거나 전화로 문의해주세요.<br>' +
+      '📞 010-9741-5525<br>' +
+      '<span style="opacity:.6;font-size:.65rem">' +
+        '[Sheets] ' + sheetsMsg + '<br>' +
+        '[Email] '  + emailMsg  +
+      '</span>'
+    );
+  }
+});
+</script>
+</body>
+</html>

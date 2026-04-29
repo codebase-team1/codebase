@@ -1,0 +1,1456 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="코드베이스 - 스마트팩토리 구축 및 플랫폼 개발 전문기업. AI 머신비전, MES, 스마트HACCP, 자동화 로봇 통합 솔루션.">
+<meta name="keywords" content="스마트팩토리, 코드베이스, AI비전, MES, HACCP, 제조자동화, 스마트팩토리 구축">
+<meta name="author" content="코드베이스 CODE:BASE">
+<meta name="theme-color" content="#FFFFFF">
+<title>코드베이스 | 스마트팩토리 구축 & 플랫폼 개발</title>
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="shortcut icon" href="favicon.ico">
+<link rel="manifest" href="site.webmanifest">
+<meta name="apple-mobile-web-app-title" content="코드베이스">
+
+<!-- Open Graph (카카오톡·페이스북 미리보기) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="코드베이스 CODE:BASE">
+<meta property="og:url" content="https://www.code-base.co.kr/">
+<meta property="og:title" content="코드베이스 | 스마트팩토리 구축 & 플랫폼 개발">
+<meta property="og:description" content="AI 머신비전 · 스마트HACCP · MES · 자동화 로봇을 단일 플랫폼으로. 프로젝트 매칭부터 구축·운영까지 코드베이스가 함께합니다.">
+<meta property="og:image" content="https://www.code-base.co.kr/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ko_KR">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="코드베이스 | 스마트팩토리 구축 & 플랫폼 개발">
+<meta name="twitter:description" content="AI 머신비전 · 스마트HACCP · MES · 자동화 로봇을 단일 플랫폼으로.">
+<meta name="twitter:image" content="https://www.code-base.co.kr/og-image.png">
+
+<!-- Canonical -->
+<link rel="canonical" href="https://www.code-base.co.kr/">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Noto+Sans+KR:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ════════════════════════════════════════
+   DESIGN SYSTEM — Industrial Light
+   ════════════════════════════════════════ */
+:root{
+  --bg0:#FFFFFF;
+  --bg1:#F8FAFC;
+  --bg2:#FFFFFF;
+  --bg3:#F1F5F9;
+  --bg4:#E2E8F0;
+  --border:#E2E8F0;
+  --border2:rgba(30,106,138,.35);
+  --sky:#1E6A8A;
+  --sky2:#154A60;
+  --cyan:#0891B2;
+  --green:#059669;
+  --amber:#D97706;
+  --red:#DC2626;
+  --violet:#7C3AED;
+  --pink:#DB2777;
+  --t1:#0F172A;
+  --t2:#475569;
+  --t3:#94A3B8;
+  --shadow-sm:0 1px 2px rgba(15,23,42,.04), 0 1px 1px rgba(15,23,42,.03);
+  --shadow-md:0 4px 12px rgba(15,23,42,.06), 0 2px 4px rgba(15,23,42,.04);
+  --shadow-lg:0 12px 32px rgba(15,23,42,.08), 0 4px 8px rgba(15,23,42,.05);
+  --mono:'JetBrains Mono',monospace;
+  --head:'Barlow Condensed',sans-serif;
+  --body:'Noto Sans KR',sans-serif;
+  --r:6px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg0);color:var(--t1);font-family:var(--body);font-size:15px;line-height:1.6;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+button{border:none;cursor:pointer;font-family:inherit}
+
+/* grid bg */
+body::before{
+  content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:linear-gradient(rgba(30,106,138,.04) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(30,106,138,.04) 1px,transparent 1px);
+  background-size:44px 44px;
+}
+
+/* ── scrollbar ── */
+::-webkit-scrollbar{width:8px}
+::-webkit-scrollbar-track{background:var(--bg1)}
+::-webkit-scrollbar-thumb{background:#CBD5E1;border-radius:4px}
+::-webkit-scrollbar-thumb:hover{background:#94A3B8}
+
+/* ════ NAV ════ */
+nav{
+  position:fixed;top:0;width:100%;z-index:300;
+  display:flex;align-items:center;justify-content:space-between;
+  height:60px;padding:0 2rem;
+  background:rgba(255,255,255,.88);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--border);
+  transition:border-color .3s, box-shadow .3s;
+}
+nav.scrolled{border-bottom-color:var(--border2);box-shadow:var(--shadow-sm)}
+.logo{
+  font-family:var(--head);font-weight:900;font-size:1.55rem;
+  letter-spacing:3px;color:var(--t1);display:flex;align-items:center;gap:10px;
+}
+.logo-dot{
+  width:8px;height:8px;border-radius:50%;
+  background:var(--sky);box-shadow:0 0 8px var(--sky);
+  animation:pulse 2s infinite;
+}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.6;transform:scale(.85)}}
+.logo-sub{
+  font-family:var(--mono);font-size:.52rem;letter-spacing:1.5px;
+  color:var(--t3);font-weight:400;align-self:flex-end;margin-bottom:3px;
+}
+.nav-menu{display:flex;align-items:center;gap:.15rem}
+.nav-menu a{
+  font-size:.82rem;color:var(--t2);padding:.38rem .85rem;border-radius:4px;
+  transition:color .2s,background .2s;letter-spacing:.2px;white-space:nowrap;
+}
+.nav-menu a:hover{color:var(--sky);background:rgba(30,106,138,.07)}
+.nav-menu a.active{color:var(--sky);background:rgba(30,106,138,.1);border:1px solid rgba(30,106,138,.25)}
+.nav-menu .has-badge{position:relative}
+.nav-menu .has-badge::after{
+  content:'NEW';position:absolute;top:-4px;right:-2px;
+  font-family:var(--mono);font-size:.42rem;letter-spacing:.5px;
+  background:var(--sky);color:#fff;padding:1px 4px;border-radius:2px;
+}
+.nav-right{display:flex;align-items:center;gap:.5rem}
+.btn-nav-ghost{
+  font-family:var(--mono);font-size:.73rem;letter-spacing:.5px;
+  color:var(--t2);border:1px solid var(--border);border-radius:4px;
+  padding:.4rem 1rem;background:transparent;
+  transition:border-color .2s,color .2s;
+}
+.btn-nav-ghost:hover{border-color:var(--border2);color:var(--sky)}
+.btn-nav-solid{
+  font-family:var(--mono);font-size:.73rem;letter-spacing:.5px;
+  background:var(--sky);color:#fff;font-weight:600;
+  padding:.4rem 1.1rem;border-radius:4px;
+  box-shadow:0 4px 12px rgba(30,106,138,.25);
+  transition:box-shadow .2s,transform .15s,background .2s;
+}
+.btn-nav-solid:hover{background:var(--sky2);box-shadow:0 6px 18px rgba(30,106,138,.35);transform:translateY(-1px)}
+
+/* 전화번호 링크 */
+.contact-tel{
+  display:inline-flex;align-items:center;gap:5px;
+  font-family:var(--mono);font-size:.72rem;font-weight:500;
+  color:var(--t2);letter-spacing:.3px;
+  padding:.38rem .85rem;border-radius:4px;
+  border:1px solid var(--border);
+  transition:color .2s,border-color .2s,background .2s;
+  text-decoration:none;white-space:nowrap;
+}
+.contact-tel:hover{
+  color:var(--sky);border-color:var(--border2);
+  background:rgba(30,106,138,.07);
+}
+
+.hamburger{display:none;flex-direction:column;gap:5px;padding:4px;cursor:pointer;z-index:301}
+.hamburger span{width:22px;height:2px;background:var(--t2);border-radius:2px;display:block;transition:transform .25s ease,opacity .2s ease}
+.hamburger.active span:nth-child(1){transform:translateY(7px) rotate(45deg);background:var(--sky)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg);background:var(--sky)}
+
+/* ════ HERO ════ */
+.hero{
+  min-height:100vh;display:flex;align-items:center;
+  padding:80px 0 60px;overflow:hidden;position:relative;z-index:1;
+}
+.hero-wrap{max-width:1200px;margin:0 auto;padding:0 2rem;width:100%;
+  display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:center}
+
+/* left */
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;margin-bottom:1.5rem;
+  border:1px solid var(--border2);border-radius:3px;padding:5px 12px;
+  font-family:var(--mono);font-size:.68rem;letter-spacing:1.5px;color:var(--cyan);
+  background:rgba(8,145,178,.08);
+}
+.live-dot{width:6px;height:6px;background:var(--green);border-radius:50%;animation:pulse 1.2s infinite}
+.hero h1{
+  font-family:var(--head);font-weight:900;
+  font-size:clamp(2.8rem,4.8vw,4.4rem);line-height:1.04;margin-bottom:1.25rem;
+}
+.hero h1 em{font-style:normal;color:var(--sky)}
+.hero-desc{
+  color:var(--t2);font-size:.93rem;line-height:1.78;margin-bottom:2rem;max-width:470px;
+}
+.hero-btns{display:flex;gap:.85rem;flex-wrap:wrap}
+.btn-glow{
+  font-family:var(--mono);font-size:.78rem;font-weight:600;letter-spacing:.5px;
+  background:var(--sky);color:#fff;padding:.72rem 1.8rem;border-radius:4px;
+  box-shadow:0 6px 16px rgba(30,106,138,.25);
+  transition:box-shadow .2s,transform .15s,background .2s;
+}
+.btn-glow:hover{background:var(--sky2);box-shadow:0 10px 24px rgba(30,106,138,.4);transform:translateY(-1px)}
+.btn-outline{
+  font-family:var(--mono);font-size:.78rem;font-weight:500;letter-spacing:.5px;
+  border:1px solid var(--border2);color:var(--sky);padding:.72rem 1.8rem;border-radius:4px;
+  background:transparent;transition:background .2s,border-color .2s;
+}
+.btn-outline:hover{background:rgba(30,106,138,.06);border-color:var(--sky)}
+.hero-stats{
+  display:flex;gap:2.25rem;margin-top:2.5rem;padding-top:2rem;
+  border-top:1px solid var(--border);
+}
+.stat-val{font-family:var(--head);font-weight:900;font-size:2.1rem;color:var(--sky);line-height:1}
+.stat-lbl{font-size:.72rem;color:var(--t3);margin-top:3px;letter-spacing:.3px}
+
+/* ── DASHBOARD CARD (right) ── */
+.dash{
+  background:var(--bg2);border:1px solid var(--border);border-radius:10px;
+  padding:1.25rem;position:relative;overflow:hidden;
+  box-shadow:var(--shadow-md);
+}
+.dash::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--sky),var(--cyan),var(--sky));
+}
+.dash-head{
+  display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;
+}
+.dash-title{font-family:var(--mono);font-size:.63rem;color:var(--t3);letter-spacing:1px}
+.live-badge{
+  display:flex;align-items:center;gap:5px;
+  font-family:var(--mono);font-size:.62rem;color:var(--green);
+}
+.live-badge::before{content:'';width:6px;height:6px;background:var(--green);border-radius:50%;animation:pulse 1.2s infinite}
+
+/* metrics */
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:.65rem;margin-bottom:1rem}
+.metric{
+  background:var(--bg3);border:1px solid var(--border);
+  border-radius:6px;padding:.7rem .6rem;
+}
+.metric-v{font-family:var(--head);font-weight:800;font-size:1.55rem;line-height:1;margin-bottom:2px}
+.metric-v.g{color:var(--green)}.metric-v.b{color:var(--sky)}.metric-v.a{color:var(--amber)}
+.metric-l{font-size:.6rem;color:var(--t3);font-family:var(--mono)}
+
+/* bar chart */
+.chart-area{margin-bottom:.85rem}
+.chart-lbl{font-family:var(--mono);font-size:.58rem;color:var(--t3);margin-bottom:5px}
+.bars{display:flex;align-items:flex-end;gap:3px;height:44px}
+.bar{flex:1;border-radius:2px 2px 0 0;transition:opacity .2s}
+.bar:hover{opacity:.75}
+.bar-labels{display:flex;gap:3px;margin-top:2px}
+.bar-labels span{flex:1;text-align:center;font-size:.52rem;color:var(--t3);font-family:var(--mono)}
+
+/* vision strip */
+.vision-strip{
+  display:flex;align-items:center;gap:.75rem;
+  background:var(--bg3);border:1px solid var(--border);
+  border-radius:6px;padding:.8rem;margin-bottom:.75rem;
+}
+.cam-box{
+  width:82px;height:58px;border-radius:5px;
+  background:linear-gradient(135deg,#0F172A,#1E293B);
+  border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.3rem;flex-shrink:0;position:relative;overflow:hidden;
+}
+.scanline{
+  position:absolute;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--green),transparent);
+  animation:scan 2s linear infinite;top:0;
+}
+@keyframes scan{0%{top:0}100%{top:100%}}
+.vision-info{flex:1}
+.vision-top{display:flex;align-items:center;gap:6px;font-family:var(--mono);font-size:.62rem;margin-bottom:3px}
+.tag{font-size:.58rem;padding:1px 6px;border-radius:2px}
+.tag.ok{background:rgba(16,185,129,.15);color:var(--green)}
+.tag.ng{background:rgba(239,68,68,.15);color:var(--red)}
+.tag.info{background:rgba(30,106,138,.12);color:var(--sky)}
+.vision-pct{font-family:var(--head);font-weight:800;font-size:1.55rem;color:var(--green);line-height:1}
+.vision-sub{font-size:.58rem;color:var(--t3);font-family:var(--mono)}
+
+/* alerts */
+.alert-list{display:flex;flex-direction:column;gap:4px}
+.alert{
+  display:flex;align-items:center;gap:7px;
+  background:var(--bg3);border:1px solid var(--border);
+  border-radius:4px;padding:5px 8px;
+  font-family:var(--mono);font-size:.6rem;
+}
+.alert.w{border-left:2px solid var(--amber)}
+.alert.s{border-left:2px solid var(--green)}
+.alert.i{border-left:2px solid var(--sky)}
+.alert-t{color:var(--t3);flex-shrink:0;width:30px}
+.alert-m{color:var(--t2);flex:1}
+.alert-b{margin-left:auto;flex-shrink:0}
+
+/* ════ SECTION COMMON ════ */
+.section{padding:5.5rem 0;position:relative;z-index:1}
+.section.alt{background:var(--bg1)}
+.wrap{max-width:1200px;margin:0 auto;padding:0 2rem}
+.sec-eyebrow{
+  font-family:var(--mono);font-size:.68rem;letter-spacing:2px;
+  color:var(--sky);text-transform:uppercase;margin-bottom:.7rem;
+  display:flex;align-items:center;gap:7px;
+}
+.sec-eyebrow::before{content:'//';color:var(--t3)}
+h2.sec-h{
+  font-family:var(--head);font-weight:900;
+  font-size:clamp(1.9rem,3.5vw,2.9rem);line-height:1.1;margin-bottom:.7rem;
+}
+.sec-desc{color:var(--t2);font-size:.9rem;max-width:540px;line-height:1.75}
+.sec-header{margin-bottom:3rem}
+
+/* ════ SERVICES — 4 CORE ════ */
+.services-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;
+}
+.svc-card{
+  background:var(--bg2);border:1px solid var(--border);border-radius:8px;
+  padding:1.5rem 1.25rem;
+  transition:border-color .2s,transform .2s,box-shadow .2s;
+  position:relative;overflow:hidden;box-shadow:var(--shadow-sm);
+}
+.svc-card:hover{transform:translateY(-3px);border-color:var(--border2);box-shadow:var(--shadow-lg)}
+.svc-card::after{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  opacity:0;transition:opacity .2s;
+}
+.svc-card:hover::after{opacity:1}
+.cs::after{background:linear-gradient(90deg,var(--sky),var(--cyan))}
+.cg::after{background:linear-gradient(90deg,var(--green),#34D399)}
+.cv::after{background:linear-gradient(90deg,var(--violet),#A78BFA)}
+.ca::after{background:linear-gradient(90deg,var(--amber),#FCD34D)}
+.svc-icon{
+  width:42px;height:42px;border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.25rem;margin-bottom:1rem;
+}
+.is{background:rgba(30,106,138,.1)} .ig{background:rgba(5,150,105,.1)}
+.iv{background:rgba(124,58,237,.1)} .ia{background:rgba(217,119,6,.1)}
+.svc-card h3{font-family:var(--head);font-weight:800;font-size:1.15rem;margin-bottom:.4rem}
+.svc-card p{font-size:.8rem;color:var(--t2);line-height:1.65}
+.svc-tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:.75rem}
+.stag{
+  font-family:var(--mono);font-size:.55rem;
+  border:1px solid var(--border);border-radius:3px;
+  padding:2px 6px;color:var(--t3);
+}
+
+/* ════ HOW IT WORKS ════ */
+.steps{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+  position:relative;margin-top:1rem;
+}
+.steps::before{
+  content:'';position:absolute;top:28px;left:12%;right:12%;height:1px;
+  background:linear-gradient(90deg,var(--border),var(--border2),var(--border));
+  z-index:0;
+}
+.step{
+  display:flex;flex-direction:column;align-items:center;text-align:center;
+  padding:0 1rem;position:relative;z-index:1;
+}
+.step-num{
+  width:56px;height:56px;border-radius:50%;
+  background:var(--bg2);border:1px solid var(--border2);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--head);font-weight:900;font-size:1.3rem;color:var(--sky);
+  margin-bottom:1.1rem;
+}
+.step h4{font-family:var(--head);font-weight:800;font-size:1.1rem;margin-bottom:.4rem}
+.step p{font-size:.78rem;color:var(--t2);line-height:1.6}
+
+/* ════ PLATFORM FEATURES ════ */
+.features-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+.feat-visual{
+  background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:1.5rem;
+  box-shadow:var(--shadow-md);
+}
+.feat-tabs{display:flex;gap:.4rem;margin-bottom:2rem;flex-wrap:wrap}
+.ftab{
+  font-family:var(--mono);font-size:.68rem;letter-spacing:.4px;
+  border:1px solid var(--border);border-radius:4px;
+  padding:.38rem .9rem;cursor:pointer;color:var(--t3);background:transparent;
+  transition:all .2s;
+}
+.ftab:hover{border-color:var(--border2);color:var(--t2)}
+.ftab.active{border-color:var(--sky);color:var(--sky);background:rgba(30,106,138,.08)}
+.fpanel{display:none}
+.fpanel.active{display:block}
+
+/* project list */
+.proj-list{display:flex;flex-direction:column;gap:.5rem}
+.proj-item{
+  display:flex;align-items:center;gap:.75rem;
+  background:var(--bg3);border:1px solid var(--border);
+  border-radius:5px;padding:.65rem .85rem;
+  transition:border-color .2s,background .2s;
+}
+.proj-item:hover{background:#fff}
+.proj-item:hover{border-color:var(--border2)}
+.proj-badge{
+  font-family:var(--mono);font-size:.56rem;letter-spacing:.5px;
+  padding:2px 7px;border-radius:3px;flex-shrink:0;
+}
+.pb-robot{background:rgba(30,106,138,.12);color:var(--sky)}
+.pb-vision{background:rgba(5,150,105,.12);color:var(--green)}
+.pb-mes{background:rgba(124,58,237,.12);color:var(--violet)}
+.pb-haccp{background:rgba(217,119,6,.12);color:var(--amber)}
+.proj-title{font-size:.82rem;color:var(--t1);flex:1}
+.proj-biz{font-family:var(--mono);font-size:.6rem;color:var(--t3)}
+.proj-price{font-family:var(--mono);font-size:.68rem;color:var(--sky);flex-shrink:0}
+
+/* supplier grid */
+.supp-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.5rem}
+.supp-card{
+  background:var(--bg3);border:1px solid var(--border);
+  border-radius:5px;padding:.75rem;display:flex;align-items:center;gap:.65rem;
+}
+.supp-logo{
+  width:36px;height:36px;border-radius:5px;border:1px solid var(--border2);
+  background:var(--bg3);display:flex;align-items:center;justify-content:center;
+  font-size:1rem;flex-shrink:0;
+}
+.supp-name{font-size:.78rem;font-weight:500}
+.supp-cat{font-family:var(--mono);font-size:.58rem;color:var(--t3)}
+
+/* govt panel */
+.gov-items{display:flex;flex-direction:column;gap:.5rem}
+.gov-item{
+  display:flex;align-items:center;gap:.75rem;
+  background:var(--bg3);border:1px solid var(--border);
+  border-radius:5px;padding:.65rem .85rem;
+}
+.gov-tag{
+  font-family:var(--mono);font-size:.55rem;padding:2px 7px;border-radius:3px;
+  flex-shrink:0;
+}
+.gt-open{background:rgba(5,150,105,.12);color:var(--green)}
+.gt-soon{background:rgba(217,119,6,.12);color:var(--amber)}
+.gt-close{background:rgba(100,116,139,.12);color:var(--t3)}
+.gov-title{font-size:.8rem;flex:1}
+.gov-budget{font-family:var(--mono);font-size:.65rem;color:var(--sky)}
+
+/* feature list */
+.feat-list{list-style:none;display:flex;flex-direction:column;gap:.55rem}
+.feat-list li{
+  display:flex;align-items:flex-start;gap:10px;
+  font-size:.87rem;color:var(--t2);line-height:1.55;
+}
+.feat-list li::before{
+  content:'▸';color:var(--sky);font-size:.72rem;margin-top:3px;flex-shrink:0;
+}
+.feat-cta{
+  display:inline-flex;align-items:center;gap:6px;
+  font-family:var(--mono);font-size:.72rem;color:var(--sky);
+  margin-top:1.5rem;border-bottom:1px solid rgba(30,106,138,.3);
+  padding-bottom:2px;transition:border-color .2s;
+}
+.feat-cta:hover{border-color:var(--sky)}
+
+/* ════ STATS BAND ════ */
+.stats-band{
+  background:var(--bg1);border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  padding:3rem 0;
+}
+.stats-inner{
+  display:flex;justify-content:space-around;align-items:center;flex-wrap:wrap;gap:2rem;
+}
+.stat-block{text-align:center}
+.stat-block .val{
+  font-family:var(--head);font-weight:900;font-size:2.5rem;color:var(--sky);line-height:1;
+}
+.stat-block .lbl{font-size:.78rem;color:var(--t3);margin-top:4px;letter-spacing:.3px}
+.stat-divider{width:1px;height:40px;background:var(--border)}
+
+/* ════ CASE STUDIES ════ */
+.cases-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.case-card{
+  background:var(--bg2);border:1px solid var(--border);border-radius:8px;
+  overflow:hidden;transition:transform .2s,border-color .2s,box-shadow .2s;
+  box-shadow:var(--shadow-sm);
+}
+.case-card:hover{transform:translateY(-3px);border-color:var(--border2);box-shadow:var(--shadow-lg)}
+.case-thumb{
+  height:130px;display:flex;align-items:center;justify-content:center;
+  font-size:2.5rem;position:relative;overflow:hidden;
+}
+.case-thumb::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(to bottom,transparent 40%,var(--bg2));
+}
+.ct-food{background:linear-gradient(135deg,#D1FAE5,#A7F3D0)}
+.ct-cosm{background:linear-gradient(135deg,#EDE9FE,#DDD6FE)}
+.ct-auto{background:linear-gradient(135deg,#DBEAFE,#BFDBFE)}
+.case-body{padding:1.1rem}
+.case-industry{
+  font-family:var(--mono);font-size:.58rem;letter-spacing:1px;
+  color:var(--sky);text-transform:uppercase;margin-bottom:.4rem;
+}
+.case-card h4{font-family:var(--head);font-weight:700;font-size:1.05rem;margin-bottom:.4rem}
+.case-card p{font-size:.78rem;color:var(--t2);line-height:1.6}
+.case-kpis{display:flex;gap.75rem;margin-top:.75rem;gap:.75rem}
+.kpi-pill{
+  font-family:var(--mono);font-size:.6rem;
+  background:rgba(5,150,105,.1);border:1px solid rgba(5,150,105,.25);
+  color:var(--green);padding:3px 8px;border-radius:3px;
+}
+
+/* ════ TECH STACK ════ */
+.tech-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2.5rem}
+.tech-card{
+  background:var(--bg2);border:1px solid var(--border);border-radius:8px;
+  padding:1.35rem;transition:border-color .2s,transform .2s,box-shadow .2s;
+  box-shadow:var(--shadow-sm);
+}
+.tech-card:hover{border-color:var(--border2);transform:translateY(-2px);box-shadow:var(--shadow-md)}
+.tech-card h4{font-family:var(--head);font-weight:800;font-size:1.05rem;margin-bottom:.4rem}
+.tech-card p{font-size:.78rem;color:var(--t2);line-height:1.6;margin-bottom:.75rem}
+.tech-pills{display:flex;flex-wrap:wrap;gap:4px}
+.tpill{
+  font-family:var(--mono);font-size:.56rem;letter-spacing:.3px;
+  border:1px solid var(--border);border-radius:3px;padding:2px 7px;color:var(--t3);
+}
+
+/* ════ CTA ════ */
+.cta-box{
+  background:linear-gradient(135deg,#F0F9FF 0%,#FFFFFF 50%,#FAF5FF 100%);
+  border:1px solid var(--border2);border-radius:12px;
+  padding:3.5rem 2.5rem;text-align:center;position:relative;overflow:hidden;
+  box-shadow:var(--shadow-lg);
+}
+.cta-box::before{
+  content:'';position:absolute;inset:0;border-radius:12px;pointer-events:none;
+  background:linear-gradient(135deg,rgba(30,106,138,.04),transparent 50%,rgba(124,58,237,.04));
+}
+.cta-box::after{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--sky),var(--cyan),var(--violet));
+}
+.cta-box>*{position:relative;z-index:1}
+.cta-box h2{font-family:var(--head);font-weight:900;font-size:clamp(1.8rem,3.5vw,2.8rem);margin-bottom:.7rem}
+.cta-box p{color:var(--t2);font-size:.92rem;margin-bottom:2rem}
+.cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.cta-notes{display:flex;gap:2rem;justify-content:center;margin-top:1.5rem;flex-wrap:wrap}
+.cta-note{font-family:var(--mono);font-size:.66rem;color:var(--t3)}
+.cta-note::before{content:'✓ ';color:var(--green)}
+
+/* ════ FOOTER ════ */
+footer{
+  background:#0F172A;border-top:1px solid var(--border);
+  padding:3.5rem 0 1.5rem;position:relative;z-index:1;color:#94A3B8;
+}
+.footer-grid{display:grid;grid-template-columns:2.2fr 1fr 1fr 1fr;gap:2.5rem;margin-bottom:2.5rem}
+.footer-brand .logo{margin-bottom:.9rem;font-size:1.3rem}
+.footer-brand p{font-size:.78rem;color:#94A3B8;line-height:1.7;max-width:270px}
+.footer-brand .contact{
+  margin-top:1rem;font-family:var(--mono);font-size:.65rem;color:#94A3B8;line-height:1.8;
+}
+.footer-col h5{
+  font-family:var(--mono);font-size:.65rem;letter-spacing:1.2px;
+  color:#64748B;text-transform:uppercase;margin-bottom:.85rem;
+}
+.footer-col a{
+  display:block;font-size:.8rem;color:#CBD5E1;margin-bottom:.38rem;
+  transition:color .2s;
+}
+.footer-col a:hover{color:#5BB8D4}
+.footer-bottom{
+  border-top:1px solid #1E293B;padding-top:1.25rem;
+  display:flex;justify-content:space-between;align-items:center;
+  font-family:var(--mono);font-size:.62rem;color:#64748B;flex-wrap:wrap;gap:.5rem;
+}
+
+/* ════ RESPONSIVE ════ */
+@media(max-width:1024px){
+  .services-grid{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:repeat(2,1fr);gap:2rem}
+  .steps::before{display:none}
+  .cases-grid{grid-template-columns:1fr 1fr}
+  .tech-grid{grid-template-columns:1fr 1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .contact-tel{display:none} /* 태블릿에서 전화번호 숨김 */
+}
+@media(max-width:768px){
+  .hero-wrap{grid-template-columns:1fr}
+  .dash{display:none}
+  .features-grid{grid-template-columns:1fr}
+  .cases-grid{grid-template-columns:1fr}
+  .nav-menu,.nav-right{display:none}
+  .hamburger{display:flex}
+  .services-grid{grid-template-columns:1fr}
+  .stats-divider{display:none}
+  .tech-grid{grid-template-columns:1fr}
+
+  /* 모바일 메뉴 열림 상태 — 햄버거 클릭 시 .nav-menu.open */
+  .nav-menu.open{
+    display:flex;flex-direction:column;align-items:stretch;gap:0;
+    position:fixed;top:60px;left:0;right:0;
+    background:rgba(255,255,255,.98);backdrop-filter:blur(18px);
+    border-bottom:1px solid var(--border2);
+    box-shadow:var(--shadow-md);
+    padding:.75rem 1rem 1rem;z-index:299;
+    max-height:calc(100vh - 60px);overflow-y:auto;
+    animation:slideDown .25s ease;
+  }
+  .nav-menu.open a{
+    padding:.85rem 1rem;font-size:.95rem;
+    border-bottom:1px solid var(--border);
+    border-radius:0;
+  }
+  .nav-menu.open a:last-child{border-bottom:none}
+  body.menu-open{overflow:hidden}
+  @keyframes slideDown{
+    from{opacity:0;transform:translateY(-8px)}
+    to{opacity:1;transform:translateY(0)}
+  }
+}
+@media(max-width:480px){
+  .hero h1{font-size:2.6rem}
+  .wrap{padding:0 1.25rem}
+  .steps{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr}
+}
+
+/* ════ INDUSTRY GRID ════ */
+.ind-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2.5rem;
+}
+.ind-card{
+  background:var(--bg2);border:1px solid var(--border);border-radius:10px;
+  padding:1.5rem 1.35rem;transition:border-color .2s,transform .2s,box-shadow .2s;
+  box-shadow:var(--shadow-sm);
+}
+.ind-card:hover{border-color:var(--border2);transform:translateY(-3px);box-shadow:var(--shadow-md)}
+.ind-head{display:flex;align-items:center;gap:10px;margin-bottom:1rem}
+.ind-icon{font-size:1.4rem;line-height:1}
+.ind-head h4{
+  font-family:var(--head);font-weight:800;font-size:1.1rem;
+  color:var(--sky);
+}
+.ind-list{list-style:none;display:flex;flex-direction:column;gap:.45rem}
+.ind-list li{
+  font-size:.82rem;color:var(--t2);display:flex;align-items:flex-start;gap:8px;line-height:1.5;
+}
+.ind-list li::before{content:'·';color:var(--sky);font-size:1rem;line-height:1.3;flex-shrink:0}
+
+/* ════ VS COMPARISON TABLE ════ */
+.vs-table{
+  margin-top:3rem;
+  background:var(--bg2);border:1px solid var(--border);border-radius:12px;
+  overflow:hidden;box-shadow:var(--shadow-md);
+}
+.vs-header{
+  display:grid;grid-template-columns:1fr 160px 1fr;
+  background:var(--bg3);border-bottom:1px solid var(--border);
+  padding:1.1rem 1.5rem;align-items:center;
+}
+.vs-col-label{
+  font-family:var(--head);font-weight:800;font-size:1.05rem;text-align:center;
+}
+.vs-col-label.old{color:var(--t3)}
+.vs-col-label.new{color:var(--sky)}
+.vs-badge{
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--head);font-weight:900;font-size:1.6rem;
+  color:var(--sky);
+  background:rgba(30,106,138,.1);border:1px solid rgba(30,106,138,.25);
+  border-radius:8px;padding:.4rem .8rem;margin:0 auto;width:fit-content;
+}
+.vs-row{
+  display:grid;grid-template-columns:1fr 160px 1fr;
+  align-items:center;gap:0;
+  border-bottom:1px solid var(--border);
+  padding:.9rem 1.5rem;
+  transition:background .15s;
+}
+.vs-row:hover{background:#FAFBFC}
+.vs-row-last{border-bottom:none}
+.vs-col-old{display:flex;justify-content:flex-end;align-items:center;padding-right:1.25rem}
+
+/* 코드베이스 열 강조 스타일 */
+.vs-col-new{
+  display:flex;justify-content:flex-start;align-items:center;padding-left:1.25rem;
+  background:rgba(30,106,138,.05);
+  position:relative;
+}
+.vs-table .vs-col-new{
+  border-left:1px solid rgba(30,106,138,.3);
+}
+.vs-col-label.old{color:var(--t3)}
+.vs-col-label.new{
+  color:var(--sky2);
+  font-size:1.2rem;
+}
+.old-tag{
+  background:rgba(100,116,139,.1);border:1px solid rgba(100,116,139,.25);
+  color:var(--t2);
+}
+.new-tag{
+  background:var(--sky)!important;
+  border-color:var(--sky)!important;
+  color:#fff!important;
+  box-shadow:0 2px 6px rgba(30,106,138,.25);
+  font-weight:500;
+}
+.vs-col-mid{
+  display:flex;align-items:center;justify-content:center;
+  border-left:1px solid var(--border);border-right:1px solid var(--border);
+  padding:.5rem .75rem;background:rgba(30,106,138,.05);
+  min-height:100%;
+}
+.vs-criterion{
+  font-family:var(--head);font-weight:700;font-size:.92rem;
+  color:var(--sky);text-align:center;line-height:1.3;
+}
+.vs-tag-group{display:flex;flex-wrap:wrap;gap:.4rem;justify-content:flex-end}
+.vs-tag{
+  display:inline-flex;align-items:center;
+  font-size:.78rem;padding:.35rem .75rem;border-radius:5px;
+  line-height:1.4;text-align:center;
+}
+.vs-tag.wide{width:100%;justify-content:flex-end;text-align:right}
+
+@media(max-width:768px){
+  .vs-header{grid-template-columns:1fr 80px 1fr;padding:.85rem 1rem}
+  .vs-row{grid-template-columns:1fr 80px 1fr;padding:.75rem 1rem}
+  .vs-badge{font-size:1.2rem;padding:.3rem .5rem}
+  .vs-criterion{font-size:.75rem}
+  .vs-tag{font-size:.7rem;padding:.3rem .55rem}
+  .vs-col-old{padding-right:.75rem}
+  .vs-col-new{padding-left:.75rem}
+}
+@media(max-width:480px){
+  .vs-header,.vs-row{grid-template-columns:1fr 60px 1fr}
+  .vs-col-label{font-size:.82rem}
+}
+
+/* ════ REVEAL ANIMATION ════ */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .55s ease,transform .55s ease}
+.reveal.in{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+
+<!-- ══════════ NAV ══════════ -->
+<nav id="nav" role="navigation">
+  <a href="#home" class="logo" style="display:flex;align-items:center;text-decoration:none;">
+    <img src="logo.png" alt="코드베이스 CODE:BASE" style="height:38px;width:auto;display:block;" />
+  </a>
+  <div class="nav-menu" id="navMenu">
+    <a href="#services" class="nav-link">솔루션</a>
+    <a href="#industry" class="nav-link">산업군</a>
+    <a href="#process" class="nav-link">프로세스</a>
+    <a href="#platform" class="nav-link">플랫폼</a>
+    <a href="#tech" class="nav-link">기술</a>
+    <a href="#contact" class="nav-link">문의</a>
+  </div>
+  <div class="nav-right">
+    <a href="contact.html?type=consult" class="btn-nav-solid" style="display:inline-flex;align-items:center;gap:5px;">문의하기</a>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="메뉴 열기" aria-expanded="false" aria-controls="navMenu" type="button">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ══════════ HERO ══════════ -->
+<section class="hero" id="home">
+  <div class="hero-wrap">
+    <!-- LEFT -->
+    <div>
+      <div class="hero-eyebrow">
+        <span class="live-dot"></span>
+        LIVE MONITORING ACTIVE · 30여개 현장 IoT 연결
+      </div>
+      <h1>
+        스마트팩토리<br>
+        구축 &amp; 플랫폼<br>
+        <em>All-in-One</em>
+      </h1>
+      <p class="hero-desc">
+        AI 머신비전 · 스마트HACCP · MES · 자동화 로봇을 단일 플랫폼으로.<br>
+        프로젝트 매칭부터 구축·운영까지 코드베이스가 함께합니다.
+      </p>
+      <div class="hero-btns">
+        <a href="contact.html?type=demo" class="btn-glow">무료 데모 신청 →</a>
+        <a href="#services" class="btn-outline">솔루션 둘러보기</a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="stat-val">99.2%</div>
+          <div class="stat-lbl">AI 판독 정확도</div>
+        </div>
+        <div>
+          <div class="stat-val">68%</div>
+          <div class="stat-lbl">문서작업 절감</div>
+        </div>
+        <div>
+          <div class="stat-val">3배</div>
+          <div class="stat-lbl">관리 효율 향상</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: DASHBOARD MOCKUP -->
+    <div class="dash" aria-hidden="true">
+      <div class="dash-head">
+        <span class="dash-title">CODE:BASE CONTROL TOWER · 실시간 현황</span>
+        <span class="live-badge">LIVE</span>
+      </div>
+      <div class="metrics">
+        <div class="metric"><div class="metric-v g">98.7%</div><div class="metric-l">불량 검출률</div></div>
+        <div class="metric"><div class="metric-v b">1,247</div><div class="metric-l">금일 생산(ea)</div></div>
+        <div class="metric"><div class="metric-v a">2</div><div class="metric-l">이탈 감지</div></div>
+      </div>
+      <div class="chart-area">
+        <div class="chart-lbl">라인별 가동률 (%)</div>
+        <div class="bars">
+          <div class="bar" style="height:85%;background:#1E6A8A"></div>
+          <div class="bar" style="height:92%;background:#059669"></div>
+          <div class="bar" style="height:67%;background:#D97706"></div>
+          <div class="bar" style="height:88%;background:#1E6A8A"></div>
+          <div class="bar" style="height:95%;background:#059669"></div>
+          <div class="bar" style="height:72%;background:#D97706"></div>
+          <div class="bar" style="height:89%;background:#1E6A8A"></div>
+        </div>
+        <div class="bar-labels">
+          <span>L1</span><span>L2</span><span>L3</span><span>L4</span><span>L5</span><span>L6</span><span>L7</span>
+        </div>
+      </div>
+      <div class="vision-strip">
+        <div class="cam-box">
+          <span style="font-size:1.1rem;position:relative;z-index:1">📷</span>
+          <div class="scanline"></div>
+        </div>
+        <div class="vision-info">
+          <div class="vision-top">
+            AI Vision Reader <span class="tag ok">PASS</span><span class="tag ng">NG×2</span>
+          </div>
+          <div class="vision-pct">99.2%</div>
+          <div class="vision-sub">판독 정확도 · 금일 3,041건 처리</div>
+        </div>
+      </div>
+      <div class="alert-list">
+        <div class="alert w">
+          <span class="alert-t">14:32</span>
+          <span class="alert-m">L3 냉장온도 이탈 감지 (2.8°C → 1.9°C)</span>
+          <span class="alert-b"><span class="tag ng" style="font-size:.56rem">AI 분석중</span></span>
+        </div>
+        <div class="alert s">
+          <span class="alert-t">14:28</span>
+          <span class="alert-m">L5 소비기한 검사 완료 · 이상없음</span>
+          <span class="alert-b"><span class="tag ok" style="font-size:.56rem">정상</span></span>
+        </div>
+        <div class="alert i">
+          <span class="alert-t">14:15</span>
+          <span class="alert-m">MES 일일 생산목표 83% 달성</span>
+          <span class="alert-b"><span class="tag info" style="font-size:.56rem">진행중</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ STATS BAND ══════════ -->
+<div class="stats-band">
+  <div class="wrap">
+    <div class="stats-inner">
+      <div class="stat-block reveal">
+        <div class="val">7건</div>
+        <div class="lbl">성공 구축사례 <span style="font-family:var(--mono);font-size:.65rem;color:var(--sky);display:block;margin-top:2px;">'26 상반기 기준</span></div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-block reveal">
+        <div class="val">30+</div>
+        <div class="lbl">검증 공급사</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-block reveal">
+        <div class="val">7+</div>
+        <div class="lbl">프로젝트 매칭 <span style="font-family:var(--mono);font-size:.65rem;color:var(--sky);display:block;margin-top:2px;">'26 상반기 기준</span></div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-block reveal"><div class="val">98%</div><div class="lbl">고객 만족도</div></div>
+      <div class="stat-divider"></div>
+      <div class="stat-block reveal"><div class="val">72시간</div><div class="lbl">평균 매칭 완료</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ SERVICES ══════════ -->
+<section class="section" id="services">
+  <div class="wrap">
+    <div class="sec-header reveal">
+      <div class="sec-eyebrow">Core Solutions</div>
+      <h2 class="sec-h">4개 핵심 솔루션,<br>하나의 플랫폼</h2>
+      <p class="sec-desc">제조 현장의 모든 문제를 해결하는 통합 솔루션. 필요한 모듈만 선택해 단계적으로 도입하세요.</p>
+    </div>
+    <div class="services-grid">
+      <div class="svc-card cs reveal">
+        <div class="svc-icon is">🔭</div>
+        <h3>AI PoC 실증 &amp; 머신비전</h3>
+        <p>비정형 제품 판독, 라벨·소비기한 실시간 검사. 딥러닝 기반 고정밀 AI 비전 솔루션.</p>
+        <div style="margin:0.6rem 0;padding:0.55rem 0.7rem;background:rgba(30,106,138,.08);border:1px solid rgba(30,106,138,.2);border-left:2px solid var(--sky);border-radius:4px;">
+          <div style="font-family:var(--mono);font-size:.58rem;color:var(--sky);letter-spacing:.5px;margin-bottom:2px;">📌 의료기기 딥러닝 판독</div>
+          <div style="font-size:.76rem;color:var(--t2);">의료기기 딥러닝 판독 <strong style="color:var(--green);font-family:var(--mono);">90%</strong> 판독 정확도 달성</div>
+        </div>
+        <div class="svc-tags">
+          <span class="stag">AI PoC</span><span class="stag">딥러닝</span><span class="stag">OCR</span><span class="stag">PLC연동</span>
+        </div>
+      </div>
+      <div class="svc-card cg reveal">
+        <div class="svc-icon ig">🛡️</div>
+        <h3>스마트 HACCP</h3>
+        <p>IoT 자동 기록, AI 이탈 원인 분석, 식약처 보고서 자동 생성. 수기 기록 완전 폐지.</p>
+        <div class="svc-tags">
+          <span class="stag">IoT</span><span class="stag">자동기록</span><span class="stag">모바일</span>
+        </div>
+      </div>
+      <div class="svc-card cv reveal">
+        <div class="svc-icon iv">📊</div>
+        <h3>MES 컨트롤타워</h3>
+        <p>생산 현황 실시간 모니터링, OEE 분석, 의료기기·식품 GMP 이력추적 완벽 지원.</p>
+        <div class="svc-tags">
+          <span class="stag">OEE</span><span class="stag">GMP</span><span class="stag">이력추적</span>
+        </div>
+      </div>
+      <div class="svc-card ca reveal">
+        <div class="svc-icon ia">🤖</div>
+        <h3>자동화 로봇</h3>
+        <p>협동로봇 기반 공정 자동화. AI 비전 연동 불량품 자동 배출, 다품종 전환 자동 로딩.</p>
+        <div class="svc-tags">
+          <span class="stag">Cobot</span><span class="stag">자동배출</span><span class="stag">예측유지보수</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ INDUSTRY SUPPORT ══════════ -->
+<section class="section alt" id="industry">
+  <div class="wrap">
+    <div class="sec-header reveal" style="text-align:center">
+      <div class="sec-eyebrow" style="justify-content:center">Industry</div>
+      <h2 class="sec-h" style="text-align:center">코드베이스는<br>모든 산업의 제조화 프로젝트를 지원합니다</h2>
+      <p class="sec-desc" style="margin:0 auto;text-align:center;max-width:640px">
+        식품·포장, 기계·금속가공, 화학·제약, 전자·반도체, 섬유·의류, 건설자재업까지<br>
+        각 업종 특성에 맞춘 자동화 솔루션과 검증된 공급사 매칭으로 귀사의 프로젝트를 성공으로 이끕니다.
+      </p>
+    </div>
+    <div class="ind-grid">
+      <div class="ind-card reveal">
+        <div class="ind-head"><span class="ind-icon">📦</span><h4>식품/포장업</h4></div>
+        <ul class="ind-list">
+          <li>포장 자동화 시스템</li>
+          <li>품질검사 비전 시스템</li>
+          <li>팔레타이징 솔루션</li>
+        </ul>
+      </div>
+      <div class="ind-card reveal">
+        <div class="ind-head"><span class="ind-icon">🔧</span><h4>기계/금속가공업</h4></div>
+        <ul class="ind-list">
+          <li>가공/조립 로봇</li>
+          <li>CNC 연동 자동화</li>
+          <li>용접/도장 로봇</li>
+        </ul>
+      </div>
+      <div class="ind-card reveal">
+        <div class="ind-head"><span class="ind-icon">🧪</span><h4>화학/제약업</h4></div>
+        <ul class="ind-list">
+          <li>정밀 계량/배합 시스템</li>
+          <li>무균/클린룸 자동화</li>
+          <li>품질관리 자동화</li>
+        </ul>
+      </div>
+      <div class="ind-card reveal">
+        <div class="ind-head"><span class="ind-icon">💾</span><h4>전자/반도체업</h4></div>
+        <ul class="ind-list">
+          <li>SMT 라인 자동화</li>
+          <li>테스트 검사 시스템</li>
+          <li>클린룸 물류 자동화</li>
+        </ul>
+      </div>
+      <div class="ind-card reveal">
+        <div class="ind-head"><span class="ind-icon">🧵</span><h4>섬유/의류업</h4></div>
+        <ul class="ind-list">
+          <li>재단/봉제 자동화</li>
+          <li>염색/후가공 자동화</li>
+          <li>포장/라벨링 시스템</li>
+        </ul>
+      </div>
+      <div class="ind-card reveal">
+        <div class="ind-head"><span class="ind-icon">🏗️</span><h4>건설자재업</h4></div>
+        <ul class="ind-list">
+          <li>건설 ERP</li>
+          <li>품질검사 시스템</li>
+          <li>운반/적재 자동화</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ VS COMPARISON ══════════ -->
+<section class="section" id="process">
+  <div class="wrap">
+    <div class="sec-header reveal" style="text-align:center">
+      <div class="sec-eyebrow" style="justify-content:center">Why Codebase</div>
+      <h2 class="sec-h" style="text-align:center">같은 공급사를 만나도,<br><em style="font-style:normal;color:var(--sky)">'어떻게 찾았는지'</em>에 따라<br>결과는 완전히 달라집니다</h2>
+      <p class="sec-desc" style="margin:0 auto;text-align:center">
+        대부분의 자동화 프로젝트 문제는 '공급사'가 아니라<br>공급사를 찾는 방식에서 시작됩니다.
+      </p>
+    </div>
+
+    <div class="vs-table reveal">
+      <!-- 헤더 행 -->
+      <div class="vs-header">
+        <div class="vs-col-old">
+          <span class="vs-col-label old">기존 공급사 탐색 방식</span>
+        </div>
+        <div class="vs-col-mid">
+          <span class="vs-badge">VS</span>
+        </div>
+        <div class="vs-col-new">
+          <span class="vs-col-label new">코드베이스</span>
+        </div>
+      </div>
+
+      <!-- ROW 1 -->
+      <div class="vs-row">
+        <div class="vs-col-old">
+          <div class="vs-tag-group">
+            <span class="vs-tag old-tag">브로커 업체</span>
+            <span class="vs-tag old-tag">지인 기반 소개</span>
+            <span class="vs-tag old-tag">개별 직접 발굴/연락</span>
+          </div>
+        </div>
+        <div class="vs-col-mid">
+          <span class="vs-criterion">공급사 매칭 방식</span>
+        </div>
+        <div class="vs-col-new">
+          <span class="vs-tag new-tag">검증된 공급사 회원</span>
+        </div>
+      </div>
+
+      <!-- ROW 2 -->
+      <div class="vs-row">
+        <div class="vs-col-old">
+          <span class="vs-tag old-tag wide">낮음 (브로커 이익 우선 &amp; 지인 보증 &amp; 검증 불가)</span>
+        </div>
+        <div class="vs-col-mid">
+          <span class="vs-criterion">검증 기준</span>
+        </div>
+        <div class="vs-col-new">
+          <span class="vs-tag new-tag">보유 기술 / 도입사례</span>
+        </div>
+      </div>
+
+      <!-- ROW 3 -->
+      <div class="vs-row">
+        <div class="vs-col-old">
+          <span class="vs-tag old-tag wide">불투명 (숨겨진 브로커 수수료 &amp; 지인 소개료 &amp; 검증 불가)</span>
+        </div>
+        <div class="vs-col-mid">
+          <span class="vs-criterion">견적 비교 구조</span>
+        </div>
+        <div class="vs-col-new">
+          <span class="vs-tag new-tag">복수 견적 비교 시스템</span>
+        </div>
+      </div>
+
+      <!-- ROW 4 -->
+      <div class="vs-row">
+        <div class="vs-col-old">
+          <div class="vs-tag-group">
+            <span class="vs-tag old-tag">중간 브로커 &amp; 지인 의견에 의존</span>
+            <span class="vs-tag old-tag">파악 불가</span>
+          </div>
+        </div>
+        <div class="vs-col-mid">
+          <span class="vs-criterion">기술력 판단 방식</span>
+        </div>
+        <div class="vs-col-new">
+          <span class="vs-tag new-tag">자체 평가 기준으로 산정</span>
+        </div>
+      </div>
+
+      <!-- ROW 5 -->
+      <div class="vs-row vs-row-last">
+        <div class="vs-col-old">
+          <span class="vs-tag old-tag wide">도입 후 문제 발견·책임 불명확</span>
+        </div>
+        <div class="vs-col-mid">
+          <span class="vs-criterion">리스크 관리</span>
+        </div>
+        <div class="vs-col-new">
+          <span class="vs-tag new-tag">사전 검증으로 리스크 최소화</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ PLATFORM FEATURES ══════════ -->
+<section class="section" id="platform">
+  <div class="wrap">
+    <div class="features-grid">
+      <!-- LEFT TEXT -->
+      <div class="reveal">
+        <div class="sec-eyebrow">Platform</div>
+        <h2 class="sec-h">제조 자동화<br>매칭 플랫폼</h2>
+        <p style="color:var(--t2);font-size:.9rem;line-height:1.75;margin-bottom:1.5rem">
+          단순 소개를 넘어 프로젝트 발굴부터 구축, 운영, 정부지원 신청까지. 스마트팩토리의 전 여정을 하나의 플랫폼에서 완결합니다.
+        </p>
+        <ul class="feat-list">
+          <li>30+ 검증 공급사 · 7+ 프로젝트 매칭 이력 ('26 상반기)</li>
+          <li>프로젝트 의뢰 즉시 72시간 내 매칭 보장</li>
+          <li>안심 에스크로 결제로 사기 피해 제로</li>
+          <li>정부지원사업 공고·신청·관리 원스톱</li>
+          <li>산업 인사이트 콘텐츠 · 전문가 커뮤니티</li>
+          <li>Web · 모바일 · 태블릿 멀티 디바이스 지원</li>
+        </ul>
+        <a href="contact.html?type=platform" class="feat-cta">플랫폼 자세히 보기 →</a>
+      </div>
+
+      <!-- RIGHT PANEL -->
+      <div class="feat-visual reveal">
+        <div class="feat-tabs">
+          <button class="ftab active" data-panel="p-proj">프로젝트</button>
+          <button class="ftab" data-panel="p-supp">공급사</button>
+          <button class="ftab" data-panel="p-gov">정부지원</button>
+        </div>
+
+        <!-- Projects panel -->
+        <div class="fpanel active" id="p-proj">
+          <div style="font-family:var(--mono);font-size:.6rem;color:var(--t3);margin-bottom:.65rem">진행중 프로젝트 · 실시간</div>
+          <div class="proj-list">
+            <div class="proj-item">
+              <span class="proj-badge pb-robot">로봇</span>
+              <span class="proj-title">식품포장 라인 협동로봇 자동화</span>
+              <span class="proj-biz">식품제조</span>
+              <span class="proj-price">5,000만~</span>
+            </div>
+            <div class="proj-item">
+              <span class="proj-badge pb-vision">비전</span>
+              <span class="proj-title">화장품 용기 외관 불량 검사 시스템</span>
+              <span class="proj-biz">화장품</span>
+              <span class="proj-price">3,000만~</span>
+            </div>
+            <div class="proj-item">
+              <span class="proj-badge pb-haccp">HACCP</span>
+              <span class="proj-title">냉동식품 CCP 모니터링 자동화</span>
+              <span class="proj-biz">식품제조</span>
+              <span class="proj-price">1,500만~</span>
+            </div>
+            <div class="proj-item">
+              <span class="proj-badge pb-mes">MES</span>
+              <span class="proj-title">자동차부품 MES·이력추적 구축</span>
+              <span class="proj-biz">자동차</span>
+              <span class="proj-price">8,000만~</span>
+            </div>
+            <div class="proj-item">
+              <span class="proj-badge pb-vision">비전</span>
+              <span class="proj-title">의료기기 라벨 OCR 검사 자동화</span>
+              <span class="proj-biz">의료기기</span>
+              <span class="proj-price">4,500만~</span>
+            </div>
+          </div>
+          <div style="margin-top:.75rem;font-family:var(--mono);font-size:.62rem;color:var(--sky);text-align:right">전체 프로젝트 보기 →</div>
+        </div>
+
+        <!-- Suppliers panel -->
+        <div class="fpanel" id="p-supp">
+          <div style="font-family:var(--mono);font-size:.6rem;color:var(--t3);margin-bottom:.65rem">추천 공급사 · 검증 완료</div>
+          <div class="supp-grid">
+            <div class="supp-card"><div class="supp-logo">🤖</div><div><div class="supp-name">한국로봇㈜</div><div class="supp-cat">협동로봇 · 자동화</div></div></div>
+            <div class="supp-card"><div class="supp-logo">👁️</div><div><div class="supp-name">비전테크</div><div class="supp-cat">AI 머신비전</div></div></div>
+            <div class="supp-card"><div class="supp-logo">📋</div><div><div class="supp-name">팩토리솔루션</div><div class="supp-cat">MES · ERP</div></div></div>
+            <div class="supp-card"><div class="supp-logo">🌡️</div><div><div class="supp-name">HACCP시스템즈</div><div class="supp-cat">스마트HACCP</div></div></div>
+            <div class="supp-card"><div class="supp-logo">⚙️</div><div><div class="supp-name">스마트설비</div><div class="supp-cat">설비 IoT 연동</div></div></div>
+            <div class="supp-card"><div class="supp-logo">📦</div><div><div class="supp-name">물류자동화</div><div class="supp-cat">컨베이어 · AGV</div></div></div>
+          </div>
+          <div style="margin-top:.75rem;font-family:var(--mono);font-size:.62rem;color:var(--sky);text-align:right">30+ 공급사 보기 →</div>
+        </div>
+
+        <!-- Government panel -->
+        <div class="fpanel" id="p-gov">
+          <div style="font-family:var(--mono);font-size:.6rem;color:var(--t3);margin-bottom:.65rem">정부지원사업 공고 · 최신</div>
+          <div class="gov-items">
+            <div class="gov-item">
+              <span class="gov-tag gt-open">접수중</span>
+              <span class="gov-title">2026년 스마트공장 구축 지원사업</span>
+              <span class="gov-budget">최대 1억</span>
+            </div>
+            <div class="gov-item">
+              <span class="gov-tag gt-open">접수중</span>
+              <span class="gov-title">중소기업 AI 도입 지원 프로그램</span>
+              <span class="gov-budget">최대 5천만</span>
+            </div>
+            <div class="gov-item">
+              <span class="gov-tag gt-soon">예정</span>
+              <span class="gov-title">식품기업 HACCP 디지털 전환 지원</span>
+              <span class="gov-budget">최대 3천만</span>
+            </div>
+            <div class="gov-item">
+              <span class="gov-tag gt-soon">예정</span>
+              <span class="gov-title">제조혁신 로봇 도입 보조금</span>
+              <span class="gov-budget">최대 2억</span>
+            </div>
+            <div class="gov-item">
+              <span class="gov-tag gt-close">마감</span>
+              <span class="gov-title">2025년 스마트센서 보급사업</span>
+              <span class="gov-budget">최대 2천만</span>
+            </div>
+          </div>
+          <div style="margin-top:.75rem;font-family:var(--mono);font-size:.62rem;color:var(--sky);text-align:right">전체 공고 보기 →</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ TECH ══════════ -->
+<section class="section alt" id="tech">
+  <div class="wrap">
+    <div class="sec-header reveal">
+      <div class="sec-eyebrow">Technology</div>
+      <h2 class="sec-h">기술 강점</h2>
+      <p class="sec-desc">PLC·바코드·IoT 완전 연동과 지속 학습 AI로 현장에 최적화된 솔루션을 제공합니다.</p>
+    </div>
+    <div class="tech-grid">
+      <div class="tech-card reveal">
+        <h4>🔗 기기 간 완전 연동</h4>
+        <p>PLC, 바코드, IoT 센서를 기존 설비 그대로 연동. 교체 비용 없이 즉시 데이터 수집.</p>
+        <div class="tech-pills">
+          <span class="tpill">OPC-UA</span><span class="tpill">MQTT</span><span class="tpill">Modbus</span><span class="tpill">REST API</span>
+        </div>
+      </div>
+      <div class="tech-card reveal">
+        <h4>🧠 지속 학습 AI</h4>
+        <p>신규 품목 소량 샘플만으로 자동 학습. 사용할수록 판독 정확도가 향상되는 AI 모델.</p>
+        <div class="tech-pills">
+          <span class="tpill">딥러닝</span><span class="tpill">Transfer Learning</span><span class="tpill">AutoML</span>
+        </div>
+      </div>
+      <div class="tech-card reveal">
+        <h4>☁️ 클라우드+엣지 하이브리드</h4>
+        <p>AI 추론은 엣지에서, 분석·집계는 클라우드에서. 인터넷 단절에도 현장 운영 무중단.</p>
+        <div class="tech-pills">
+          <span class="tpill">Edge AI</span><span class="tpill">AWS</span><span class="tpill">Private Cloud</span>
+        </div>
+      </div>
+      <div class="tech-card reveal">
+        <h4>📱 멀티 디바이스</h4>
+        <p>Web, C/S, 모바일, 태블릿 동시 지원. 현장·사무실·원격 어디서든 동일한 데이터 접근.</p>
+        <div class="tech-pills">
+          <span class="tpill">PWA</span><span class="tpill">iOS</span><span class="tpill">Android</span><span class="tpill">Windows</span>
+        </div>
+      </div>
+      <div class="tech-card reveal">
+        <h4>🔔 실시간 PUSH 알림</h4>
+        <p>이상 감지 즉시 담당자 스마트폰으로 알림 전송. 앱에서 바로 조치·기록 가능.</p>
+        <div class="tech-pills">
+          <span class="tpill">FCM</span><span class="tpill">SMS</span><span class="tpill">카카오알림톡</span>
+        </div>
+      </div>
+      <div class="tech-card reveal">
+        <h4>🔒 보안 & 규정 준수</h4>
+        <p>ISO 27001, ISMS-P 인증. 식약처·의료기기 GMP 요건에 맞는 전자기록 관리 체계.</p>
+        <div class="tech-pills">
+          <span class="tpill">ISO27001</span><span class="tpill">GMP</span><span class="tpill">HACCP 법령</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ CTA ══════════ -->
+<section class="section" id="contact">
+  <div class="wrap">
+    <div class="cta-box reveal">
+      <div class="sec-eyebrow" style="justify-content:center">Get Started</div>
+      <h2>제조 자동화를 위한<br>맞춤 솔루션이 필요하신가요?</h2>
+      <p>현장 상황에 맞는 솔루션을 제안해 드립니다.<br>30분 무료 컨설팅으로 도입 비용·기간·ROI를 함께 분석해 드립니다.</p>
+      <div class="cta-btns">
+        <a href="contact.html?type=consult" class="btn-glow" style="display:inline-flex;align-items:center;gap:6px;">📋 무료 상담 신청 →</a>
+        <a href="tel:01097415525" class="btn-outline" style="display:inline-flex;align-items:center;gap:6px;">📞 010-9741-5525</a>
+      </div>
+      <div class="cta-notes">
+        <span class="cta-note">계약 없이 무료 체험</span>
+        <span class="cta-note">초기 구축비 ZERO</span>
+        <span class="cta-note">전담 도입팀 배정</span>
+        <span class="cta-note">정부지원 신청 대행</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <!-- Footer logo -->
+        <div style="margin-bottom:.9rem;">
+          <img src="logo.png" alt="코드베이스 CODE:BASE" style="height:34px;width:auto;display:block;" />
+        </div>
+        <p>스마트팩토리 구축 &amp; 플랫폼 개발 전문기업.<br>AI 머신비전 · 스마트HACCP · MES · 자동화를 하나로.</p>
+        <div class="contact">
+          ☎ 010-9741-5525<br>
+          ✉ codebase_team@code-base.co.kr<br>
+          📍 대구광역시 수성구 알파시티1로42길 11,<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;태왕알파시티수성 913호
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>솔루션</h5>
+        <a href="#services">AI 머신비전</a>
+        <a href="#services">스마트 HACCP</a>
+        <a href="#services">MES 컨트롤타워</a>
+        <a href="#services">자동화 로봇</a>
+      </div>
+      <div class="footer-col">
+        <h5>플랫폼</h5>
+        <a href="contact.html?type=platform">프로젝트 의뢰</a>
+        <a href="#platform">프로젝트 찾기</a>
+        <a href="#platform">공급사 찾기</a>
+        <a href="#platform">정부지원사업</a>
+      </div>
+      <div class="footer-col">
+        <h5>회사</h5>
+        <a href="#home">회사 소개</a>
+        <a href="#process">도입사례</a>
+        <a href="contact.html">고객센터</a>
+        <a href="contact.html">문의하기</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 코드베이스(CodeBase) All rights reserved.</span>
+      <span>
+        <a href="privacy.html" style="color:inherit;border-bottom:1px solid #1E293B;transition:color .2s;" onmouseover="this.style.color='#5BB8D4'" onmouseout="this.style.color='inherit'">개인정보처리방침</a>
+        ·
+        <a href="terms.html" style="color:inherit;border-bottom:1px solid #1E293B;transition:color .2s;" onmouseover="this.style.color='#5BB8D4'" onmouseout="this.style.color='inherit'">이용약관</a>
+        · 대구광역시 수성구 알파시티1로42길 11
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ── Tab switching ── */
+document.querySelectorAll('.ftab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    const parent = tab.closest('.feat-visual');
+    parent.querySelectorAll('.ftab').forEach(t => t.classList.remove('active'));
+    parent.querySelectorAll('.fpanel').forEach(p => p.classList.remove('active'));
+    tab.classList.add('active');
+    const target = document.getElementById(tab.dataset.panel);
+    if (target) target.classList.add('active');
+  });
+});
+
+/* ── Scroll reveal ── */
+const ro = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('in'), i * 70);
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+
+/* ── Mobile hamburger toggle ── */
+const hamburgerBtn = document.getElementById('hamburger');
+const navMenuEl    = document.getElementById('navMenu');
+function closeMobileMenu(){
+  if(!navMenuEl) return;
+  navMenuEl.classList.remove('open');
+  hamburgerBtn?.classList.remove('active');
+  hamburgerBtn?.setAttribute('aria-expanded','false');
+  document.body.classList.remove('menu-open');
+}
+hamburgerBtn?.addEventListener('click', () => {
+  const willOpen = !navMenuEl.classList.contains('open');
+  navMenuEl.classList.toggle('open', willOpen);
+  hamburgerBtn.classList.toggle('active', willOpen);
+  hamburgerBtn.setAttribute('aria-expanded', String(willOpen));
+  document.body.classList.toggle('menu-open', willOpen);
+});
+
+/* ── Smooth scroll for in-page anchors (nav + footer 모두) ── */
+document.querySelectorAll('a[href^="#"]:not([href="#"])').forEach(link => {
+  link.addEventListener('click', e => {
+    const href = link.getAttribute('href');
+    const target = document.querySelector(href);
+    if (!target) return;
+    e.preventDefault();
+    closeMobileMenu();
+    const offset = 68; // nav height
+    const top = target.getBoundingClientRect().top + window.scrollY - offset;
+    window.scrollTo({ top, behavior: 'smooth' });
+  });
+});
+
+/* ── Scrollspy: highlight active nav item ── */
+const sections = ['services','industry','process','platform','tech','contact']
+  .map(id => document.getElementById(id)).filter(Boolean);
+
+const navLinks = document.querySelectorAll('a.nav-link');
+
+function updateActive() {
+  const scrollY = window.scrollY + 80;
+  let current = '';
+  sections.forEach(sec => {
+    if (scrollY >= sec.offsetTop) current = sec.id;
+  });
+  navLinks.forEach(link => {
+    link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+  });
+}
+window.addEventListener('scroll', updateActive, { passive: true });
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 30);
+}, { passive: true });
+updateActive();
+
+/* ── Counter animation ── */
+function animateCounter(el, target, suffix = '') {
+  let start = 0;
+  const duration = 1600;
+  let startTime = null;
+  const isFloat = String(target).includes('.');
+  function step(ts) {
+    if (!startTime) startTime = ts;
+    const progress = Math.min((ts - startTime) / duration, 1);
+    const ease = 1 - Math.pow(1 - progress, 3);
+    const val = isFloat ? (ease * target).toFixed(1) : Math.floor(ease * target);
+    el.textContent = Number(val).toLocaleString() + suffix;
+    if (progress < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+const counterObs = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting && !entry.target.dataset.counted) {
+      entry.target.dataset.counted = '1';
+      const text = entry.target.textContent;
+      if (text.includes('+')) { const n = parseInt(text); animateCounter(entry.target, n, '+'); }
+      else if (text.includes('%')) { const n = parseFloat(text); animateCounter(entry.target, n, '%'); }
+    }
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('.val').forEach(el => counterObs.observe(el));
+</script>
+</body>
+</html>
