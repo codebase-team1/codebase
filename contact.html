@@ -252,18 +252,6 @@ nav{
 }
 .s-home-btn:hover{background:rgba(30,106,138,.08);}
 
-/* INQUIRY COUNT BADGE */
-.inq-badge{
-  position:fixed;bottom:1.5rem;right:1.5rem;z-index:400;
-  display:none;align-items:center;gap:7px;
-  background:var(--bg2);border:1px solid var(--border2);border-radius:8px;
-  padding:.55rem 1rem;font-family:var(--mono);font-size:.68rem;color:var(--sky);
-  box-shadow:var(--shadow-lg);cursor:pointer;
-  transition:transform .15s;
-}
-.inq-badge:hover{transform:translateY(-2px);}
-.inq-badge.on{display:flex;}
-
 /* ── 인라인 에러 메시지 ── */
 .ferr{
   display:none;font-size:.68rem;color:var(--red);
@@ -412,7 +400,7 @@ nav{
 <!-- NAV -->
 <nav>
   <a href="index.html" class="logo-link">
-    <img src="logo.png" alt="코드베이스 CODE:BASE" style="height:34px;width:auto;display:block;" />
+    <img src="codebase-logo.png" alt="코드베이스 CODE:BASE" style="height:34px;width:auto;display:block;" />
   </a>
   <a href="index.html" class="nav-back">← 홈으로</a>
 </nav>
@@ -559,11 +547,6 @@ nav{
       </div>
     </div>
   </div>
-</div>
-
-<!-- SAVED BADGE -->
-<div class="inq-badge" id="inqBadge">
-  📋 저장된 문의 <span id="inqCount">0</span>건
 </div>
 
 <!-- ══ EmailJS SDK ══ -->
@@ -865,8 +848,11 @@ function setLoading(active) {
   }
 }
 
-/* ── 인라인 에러 토스트 (alert 대신 폼 아래 표시) ── */
-function showToast(type, msg) {
+/* ── 인라인 에러 토스트 (alert 대신 폼 아래 표시)
+   ─ mainText: 정적 메시지 (textContent로 삽입)
+   ─ details:  [{ label, text }] 외부 응답 등 비신뢰 문자열 (textContent로 삽입)
+*/
+function showToast(type, mainText, details) {
   let toast = $id('formToast');
   if (!toast) {
     toast = document.createElement('div');
@@ -883,13 +869,35 @@ function showToast(type, msg) {
     toast.style.background = 'rgba(239,68,68,.08)';
     toast.style.border = '1px solid rgba(239,68,68,.3)';
     toast.style.color = '#FCA5A5';
-    toast.innerHTML = '⚠ ' + msg;
   } else {
     toast.style.background = 'rgba(16,185,129,.08)';
     toast.style.border = '1px solid rgba(16,185,129,.3)';
     toast.style.color = '#6EE7B7';
-    toast.innerHTML = '✓ ' + msg;
   }
+
+  while (toast.firstChild) toast.removeChild(toast.firstChild);
+
+  const icon = document.createElement('span');
+  icon.textContent = type === 'error' ? '⚠' : '✓';
+  icon.style.flexShrink = '0';
+  toast.appendChild(icon);
+
+  const body = document.createElement('div');
+  body.style.flex = '1';
+  const main = document.createElement('div');
+  main.textContent = mainText;
+  body.appendChild(main);
+
+  if (Array.isArray(details) && details.length) {
+    const detailBox = document.createElement('div');
+    detailBox.style.cssText = 'opacity:.6;font-size:.65rem;margin-top:.35rem;white-space:pre-line';
+    detailBox.textContent = details
+      .map(d => '[' + d.label + '] ' + (d.text == null ? '' : String(d.text)))
+      .join('\n');
+    body.appendChild(detailBox);
+  }
+  toast.appendChild(body);
+
   toast.style.display = 'flex';
   clearTimeout(toast._timer);
   if (type !== 'error') toast._timer = setTimeout(() => { toast.style.display = 'none'; }, 5000);
@@ -903,38 +911,26 @@ function hideToast() {
    성공 모달 제어
 ════════════════════════════════ */
 function showSuccessModal(inquiryId) {
-  /* 1) 접수번호 삽입 */
   $id('modalInquiryId').textContent = '접수번호: ' + inquiryId;
 
-  /* 2) 모달 표시 */
   const modal = $id('successModal');
   modal.classList.add('show');
 
-  /* 3) 확인 버튼 클릭 → 메인 페이지 이동 */
-  $id('modalConfirmBtn').onclick = () => {
+  /* 닫힘 경로 3개(확인 버튼/오버레이/ESC)를 단일 close()로 일원화하여 리스너 누수 방지 */
+  const onOverlayClick = (e) => { if (e.target === modal) close(); };
+  const onEsc          = (e) => { if (e.key === 'Escape') close(); };
+
+  function close() {
     modal.classList.remove('show');
+    modal.removeEventListener('click', onOverlayClick);
+    document.removeEventListener('keydown', onEsc);
     location.href = 'index.html';
-  };
+  }
 
-  /* 4) 오버레이 클릭(박스 바깥) → 동일하게 이동 */
-  modal.addEventListener('click', function onOverlayClick(e) {
-    if (e.target === modal) {
-      modal.removeEventListener('click', onOverlayClick);
-      modal.classList.remove('show');
-      location.href = 'index.html';
-    }
-  });
+  $id('modalConfirmBtn').onclick = close;
+  modal.addEventListener('click', onOverlayClick);
+  document.addEventListener('keydown', onEsc);
 
-  /* 5) ESC 키 → 이동 */
-  document.addEventListener('keydown', function onEsc(e) {
-    if (e.key === 'Escape') {
-      document.removeEventListener('keydown', onEsc);
-      modal.classList.remove('show');
-      location.href = 'index.html';
-    }
-  });
-
-  /* 6) 모달 내 확인 버튼에 포커스 (접근성) */
   setTimeout(() => $id('modalConfirmBtn').focus(), 100);
 }
 
@@ -1030,20 +1026,17 @@ $id('cf').addEventListener('submit', async e => {
   /* 6) 결과 분기 처리 */
   if (sheetsOk && emailOk) {
     /* ✅ 모두 성공 */
-    try { localStorage.setItem('inquiry:' + inquiryId, JSON.stringify(payload)); } catch (_) {}
     setLoading(false);
     showSuccessModal(inquiryId);
 
   } else if (sheetsOk && !emailOk) {
     /* ⚠ Sheets 성공 / 이메일 실패 → 접수 완료로 처리 */
-    try { localStorage.setItem('inquiry:' + inquiryId, JSON.stringify(payload)); } catch (_) {}
     setLoading(false);
     showSuccessModal(inquiryId);
     console.warn('이메일 전송 실패 (Sheets 저장 완료):', emailResult.reason);
 
   } else if (!sheetsOk && emailOk) {
     /* ⚠ 이메일 성공 / Sheets 실패 → 접수 완료로 처리 */
-    try { localStorage.setItem('inquiry:' + inquiryId, JSON.stringify(payload)); } catch (_) {}
     setLoading(false);
     showSuccessModal(inquiryId);
     console.warn('Sheets 저장 실패 (이메일 전송 완료):', sheetsResult.reason);
@@ -1057,13 +1050,13 @@ $id('cf').addEventListener('submit', async e => {
                       emailResult.reason?.message  ||
                       String(emailResult.reason);
 
-    showToast('error',
-      '전송에 실패했습니다. 잠시 후 다시 시도하거나 전화로 문의해주세요.<br>' +
-      '📞 010-9741-5525<br>' +
-      '<span style="opacity:.6;font-size:.65rem">' +
-        '[Sheets] ' + sheetsMsg + '<br>' +
-        '[Email] '  + emailMsg  +
-      '</span>'
+    showToast(
+      'error',
+      '전송에 실패했습니다. 잠시 후 다시 시도하거나 전화로 문의해주세요. (📞 010-9741-5525)',
+      [
+        { label: 'Sheets', text: sheetsMsg },
+        { label: 'Email',  text: emailMsg  },
+      ]
     );
   }
 });

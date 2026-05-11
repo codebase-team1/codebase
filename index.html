@@ -145,21 +145,6 @@ nav.scrolled{border-bottom-color:var(--border2);box-shadow:var(--shadow-sm)}
 }
 .btn-nav-solid:hover{background:var(--sky2);box-shadow:0 6px 18px rgba(30,106,138,.35);transform:translateY(-1px)}
 
-/* 전화번호 링크 */
-.contact-tel{
-  display:inline-flex;align-items:center;gap:5px;
-  font-family:var(--mono);font-size:.72rem;font-weight:500;
-  color:var(--t2);letter-spacing:.3px;
-  padding:.38rem .85rem;border-radius:4px;
-  border:1px solid var(--border);
-  transition:color .2s,border-color .2s,background .2s;
-  text-decoration:none;white-space:nowrap;
-}
-.contact-tel:hover{
-  color:var(--sky);border-color:var(--border2);
-  background:rgba(30,106,138,.07);
-}
-
 .hamburger{display:none;flex-direction:column;gap:5px;padding:4px;cursor:pointer;z-index:301}
 .hamburger span{width:22px;height:2px;background:var(--t2);border-radius:2px;display:block;transition:transform .25s ease,opacity .2s ease}
 .hamburger.active span:nth-child(1){transform:translateY(7px) rotate(45deg);background:var(--sky)}
@@ -214,7 +199,7 @@ nav.scrolled{border-bottom-color:var(--border2);box-shadow:var(--shadow-sm)}
 /* ── DASHBOARD CARD (right) ── */
 .dash{
   background:var(--bg2);border:1px solid var(--border);border-radius:10px;
-  padding:1.25rem;position:relative;overflow:hidden;
+  padding:1.55rem;position:relative;overflow:hidden;
   box-shadow:var(--shadow-md);
 }
 .dash::before{
@@ -224,44 +209,44 @@ nav.scrolled{border-bottom-color:var(--border2);box-shadow:var(--shadow-sm)}
 .dash-head{
   display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;
 }
-.dash-title{font-family:var(--mono);font-size:.63rem;color:var(--t3);letter-spacing:1px}
+.dash-title{font-family:var(--mono);font-size:.78rem;color:var(--t3);letter-spacing:1px}
 .live-badge{
   display:flex;align-items:center;gap:5px;
-  font-family:var(--mono);font-size:.62rem;color:var(--green);
+  font-family:var(--mono);font-size:.78rem;color:var(--green);
 }
 .live-badge::before{content:'';width:6px;height:6px;background:var(--green);border-radius:50%;animation:pulse 1.2s infinite}
 
 /* metrics */
-.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:.65rem;margin-bottom:1rem}
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;margin-bottom:1.15rem}
 .metric{
   background:var(--bg3);border:1px solid var(--border);
-  border-radius:6px;padding:.7rem .6rem;
+  border-radius:6px;padding:.9rem .8rem;
 }
-.metric-v{font-family:var(--head);font-weight:800;font-size:1.55rem;line-height:1;margin-bottom:2px}
+.metric-v{font-family:var(--head);font-weight:800;font-size:2rem;line-height:1;margin-bottom:4px}
 .metric-v.g{color:var(--green)}.metric-v.b{color:var(--sky)}.metric-v.a{color:var(--amber)}
-.metric-l{font-size:.6rem;color:var(--t3);font-family:var(--mono)}
+.metric-l{font-size:.74rem;color:var(--t3);font-family:var(--mono)}
 
 /* bar chart */
-.chart-area{margin-bottom:.85rem}
-.chart-lbl{font-family:var(--mono);font-size:.58rem;color:var(--t3);margin-bottom:5px}
-.bars{display:flex;align-items:flex-end;gap:3px;height:44px}
+.chart-area{margin-bottom:1rem}
+.chart-lbl{font-family:var(--mono);font-size:.74rem;color:var(--t3);margin-bottom:7px}
+.bars{display:flex;align-items:flex-end;gap:4px;height:58px}
 .bar{flex:1;border-radius:2px 2px 0 0;transition:opacity .2s}
 .bar:hover{opacity:.75}
-.bar-labels{display:flex;gap:3px;margin-top:2px}
-.bar-labels span{flex:1;text-align:center;font-size:.52rem;color:var(--t3);font-family:var(--mono)}
+.bar-labels{display:flex;gap:4px;margin-top:4px}
+.bar-labels span{flex:1;text-align:center;font-size:.64rem;color:var(--t3);font-family:var(--mono)}
 
 /* vision strip */
 .vision-strip{
-  display:flex;align-items:center;gap:.75rem;
+  display:flex;align-items:center;gap:.9rem;
   background:var(--bg3);border:1px solid var(--border);
-  border-radius:6px;padding:.8rem;margin-bottom:.75rem;
+  border-radius:6px;padding:1rem;margin-bottom:.9rem;
 }
 .cam-box{
-  width:82px;height:58px;border-radius:5px;
+  width:98px;height:70px;border-radius:5px;
   background:linear-gradient(135deg,#0F172A,#1E293B);
   border:1px solid var(--border);
   display:flex;align-items:center;justify-content:center;
-  font-size:1.3rem;flex-shrink:0;position:relative;overflow:hidden;
+  font-size:1.55rem;flex-shrink:0;position:relative;overflow:hidden;
 }
 .scanline{
   position:absolute;left:0;right:0;height:2px;
@@ -270,26 +255,26 @@ nav.scrolled{border-bottom-color:var(--border2);box-shadow:var(--shadow-sm)}
 }
 @keyframes scan{0%{top:0}100%{top:100%}}
 .vision-info{flex:1}
-.vision-top{display:flex;align-items:center;gap:6px;font-family:var(--mono);font-size:.62rem;margin-bottom:3px}
-.tag{font-size:.58rem;padding:1px 6px;border-radius:2px}
+.vision-top{display:flex;align-items:center;gap:7px;font-family:var(--mono);font-size:.76rem;margin-bottom:5px}
+.tag{font-size:.7rem;padding:2px 7px;border-radius:2px}
 .tag.ok{background:rgba(16,185,129,.15);color:var(--green)}
 .tag.ng{background:rgba(239,68,68,.15);color:var(--red)}
 .tag.info{background:rgba(30,106,138,.12);color:var(--sky)}
-.vision-pct{font-family:var(--head);font-weight:800;font-size:1.55rem;color:var(--green);line-height:1}
-.vision-sub{font-size:.58rem;color:var(--t3);font-family:var(--mono)}
+.vision-pct{font-family:var(--head);font-weight:800;font-size:2rem;color:var(--green);line-height:1}
+.vision-sub{font-size:.72rem;color:var(--t3);font-family:var(--mono);margin-top:3px}
 
 /* alerts */
-.alert-list{display:flex;flex-direction:column;gap:4px}
+.alert-list{display:flex;flex-direction:column;gap:6px}
 .alert{
-  display:flex;align-items:center;gap:7px;
+  display:flex;align-items:center;gap:9px;
   background:var(--bg3);border:1px solid var(--border);
-  border-radius:4px;padding:5px 8px;
-  font-family:var(--mono);font-size:.6rem;
+  border-radius:4px;padding:8px 11px;
+  font-family:var(--mono);font-size:.74rem;
 }
 .alert.w{border-left:2px solid var(--amber)}
 .alert.s{border-left:2px solid var(--green)}
 .alert.i{border-left:2px solid var(--sky)}
-.alert-t{color:var(--t3);flex-shrink:0;width:30px}
+.alert-t{color:var(--t3);flex-shrink:0;width:40px}
 .alert-m{color:var(--t2);flex:1}
 .alert-b{margin-left:auto;flex-shrink:0}
 
@@ -500,7 +485,7 @@ h2.sec-h{
 }
 .case-card h4{font-family:var(--head);font-weight:700;font-size:1.05rem;margin-bottom:.4rem}
 .case-card p{font-size:.78rem;color:var(--t2);line-height:1.6}
-.case-kpis{display:flex;gap.75rem;margin-top:.75rem;gap:.75rem}
+.case-kpis{display:flex;margin-top:.75rem;gap:.75rem}
 .kpi-pill{
   font-family:var(--mono);font-size:.6rem;
   background:rgba(5,150,105,.1);border:1px solid rgba(5,150,105,.25);
@@ -580,7 +565,6 @@ footer{
   .cases-grid{grid-template-columns:1fr 1fr}
   .tech-grid{grid-template-columns:1fr 1fr}
   .footer-grid{grid-template-columns:1fr 1fr}
-  .contact-tel{display:none} /* 태블릿에서 전화번호 숨김 */
 }
 @media(max-width:768px){
   .hero-wrap{grid-template-columns:1fr}
@@ -746,7 +730,7 @@ footer{
 <!-- ══════════ NAV ══════════ -->
 <nav id="nav" role="navigation">
   <a href="#home" class="logo" style="display:flex;align-items:center;text-decoration:none;">
-    <img src="logo.png" alt="코드베이스 CODE:BASE" style="height:38px;width:auto;display:block;" />
+    <img src="codebase-logo.png" alt="코드베이스 CODE:BASE" style="height:38px;width:auto;display:block;" />
   </a>
   <div class="nav-menu" id="navMenu">
     <a href="#services" class="nav-link">솔루션</a>
@@ -830,7 +814,7 @@ footer{
       </div>
       <div class="vision-strip">
         <div class="cam-box">
-          <span style="font-size:1.1rem;position:relative;z-index:1">📷</span>
+          <span style="font-size:1.35rem;position:relative;z-index:1">📷</span>
           <div class="scanline"></div>
         </div>
         <div class="vision-info">
@@ -845,17 +829,17 @@ footer{
         <div class="alert w">
           <span class="alert-t">14:32</span>
           <span class="alert-m">L3 냉장온도 이탈 감지 (2.8°C → 1.9°C)</span>
-          <span class="alert-b"><span class="tag ng" style="font-size:.56rem">AI 분석중</span></span>
+          <span class="alert-b"><span class="tag ng" style="font-size:.68rem">AI 분석중</span></span>
         </div>
         <div class="alert s">
           <span class="alert-t">14:28</span>
           <span class="alert-m">L5 소비기한 검사 완료 · 이상없음</span>
-          <span class="alert-b"><span class="tag ok" style="font-size:.56rem">정상</span></span>
+          <span class="alert-b"><span class="tag ok" style="font-size:.68rem">정상</span></span>
         </div>
         <div class="alert i">
           <span class="alert-t">14:15</span>
           <span class="alert-m">MES 일일 생산목표 83% 달성</span>
-          <span class="alert-b"><span class="tag info" style="font-size:.56rem">진행중</span></span>
+          <span class="alert-b"><span class="tag info" style="font-size:.68rem">진행중</span></span>
         </div>
       </div>
     </div>
@@ -899,38 +883,50 @@ footer{
     <div class="services-grid">
       <div class="svc-card cs reveal">
         <div class="svc-icon is">🔭</div>
-        <h3>AI PoC 실증 &amp; 머신비전</h3>
-        <p>비정형 제품 판독, 라벨·소비기한 실시간 검사. 딥러닝 기반 고정밀 AI 비전 솔루션.</p>
+        <h3>AI 머신비전 (포장/검사)</h3>
+        <p>다품종·비정형 제품 판독, 라벨·소비기한 실시간 자동 실적 집계. 복합 이미지 학습으로 판독 성공율을 지속 향상.</p>
         <div style="margin:0.6rem 0;padding:0.55rem 0.7rem;background:rgba(30,106,138,.08);border:1px solid rgba(30,106,138,.2);border-left:2px solid var(--sky);border-radius:4px;">
           <div style="font-family:var(--mono);font-size:.58rem;color:var(--sky);letter-spacing:.5px;margin-bottom:2px;">📌 의료기기 딥러닝 판독</div>
           <div style="font-size:.76rem;color:var(--t2);">의료기기 딥러닝 판독 <strong style="color:var(--green);font-family:var(--mono);">90%</strong> 판독 정확도 달성</div>
         </div>
         <div class="svc-tags">
-          <span class="stag">AI PoC</span><span class="stag">딥러닝</span><span class="stag">OCR</span><span class="stag">PLC연동</span>
+          <span class="stag">Vision Reader</span><span class="stag">OK/NG 판독</span><span class="stag">OCR</span><span class="stag">딥러닝</span><span class="stag">PLC연동</span>
         </div>
       </div>
       <div class="svc-card cg reveal">
         <div class="svc-icon ig">🛡️</div>
         <h3>스마트 HACCP</h3>
-        <p>IoT 자동 기록, AI 이탈 원인 분석, 식약처 보고서 자동 생성. 수기 기록 완전 폐지.</p>
+        <p>실시간 PUSH 알림 · 양식 업로드 자동기록일지 · 이탈사유 AI 자동입력 · 전자결재까지 한 번에. 수기/엑셀 점검을 디지털로 전환.</p>
+        <div style="margin:0.6rem 0;padding:0.55rem 0.7rem;background:rgba(5,150,105,.08);border:1px solid rgba(5,150,105,.2);border-left:2px solid var(--green);border-radius:4px;">
+          <div style="font-family:var(--mono);font-size:.58rem;color:var(--green);letter-spacing:.5px;margin-bottom:2px;">📋 표준 6대 메뉴 구성</div>
+          <div style="font-size:.76rem;color:var(--t2);">기준정보 · 전자결재 · CCP중요관리점 · 선행요건관리 · 법적서류관리 · 교육관리</div>
+        </div>
         <div class="svc-tags">
-          <span class="stag">IoT</span><span class="stag">자동기록</span><span class="stag">모바일</span>
+          <span class="stag">전자결재</span><span class="stag">CCP관리</span><span class="stag">자동기록일지</span><span class="stag">이탈사유 AI</span><span class="stag">교육관리</span>
         </div>
       </div>
       <div class="svc-card cv reveal">
         <div class="svc-icon iv">📊</div>
-        <h3>MES 컨트롤타워</h3>
-        <p>생산 현황 실시간 모니터링, OEE 분석, 의료기기·식품 GMP 이력추적 완벽 지원.</p>
+        <h3>MES (제조 실행 시스템)</h3>
+        <p>식품 스마트팩토리 구축사례·노하우를 집약한 MES. 클라우드 기반으로 중소제조기업도 부담 없이 도입, 필요한 모듈만 선별해 단계적으로 확장하세요.</p>
+        <div style="margin:0.6rem 0;padding:0.55rem 0.7rem;background:rgba(124,58,237,.08);border:1px solid rgba(124,58,237,.2);border-left:2px solid var(--violet);border-radius:4px;">
+          <div style="font-family:var(--mono);font-size:.58rem;color:var(--violet);letter-spacing:.5px;margin-bottom:2px;">📊 모듈형 도입 구조</div>
+          <div style="font-size:.76rem;color:var(--t2);">영업·생산·품질·설비·재고관리 모듈을 <strong style="color:var(--violet);font-family:var(--mono);">선별 도입</strong>, Web+C/S 데이터 연계</div>
+        </div>
         <div class="svc-tags">
-          <span class="stag">OEE</span><span class="stag">GMP</span><span class="stag">이력추적</span>
+          <span class="stag">영업관리</span><span class="stag">생산관리</span><span class="stag">품질관리</span><span class="stag">설비관리</span><span class="stag">Web+C/S</span>
         </div>
       </div>
       <div class="svc-card ca reveal">
         <div class="svc-icon ia">🤖</div>
         <h3>자동화 로봇</h3>
-        <p>협동로봇 기반 공정 자동화. AI 비전 연동 불량품 자동 배출, 다품종 전환 자동 로딩.</p>
+        <p>협동로봇 기반 공정 자동화. AI 비전 연동 불량품 자동 배출, 다품종 전환 자동 로딩까지 한 라인으로.</p>
+        <div style="margin:0.6rem 0;padding:0.55rem 0.7rem;background:rgba(217,119,6,.08);border:1px solid rgba(217,119,6,.2);border-left:2px solid var(--amber);border-radius:4px;">
+          <div style="font-family:var(--mono);font-size:.58rem;color:var(--amber);letter-spacing:.5px;margin-bottom:2px;">🛠️ 직접 구축 실적</div>
+          <div style="font-size:.76rem;color:var(--t2);">협동로봇 + AI 비전 <strong style="color:var(--amber);font-family:var(--mono);">통합 자동화 라인</strong> 구축 운영 중</div>
+        </div>
         <div class="svc-tags">
-          <span class="stag">Cobot</span><span class="stag">자동배출</span><span class="stag">예측유지보수</span>
+          <span class="stag">Cobot</span><span class="stag">자동배출</span><span class="stag">다품종 로딩</span><span class="stag">AI비전 연동</span><span class="stag">예측유지보수</span>
         </div>
       </div>
     </div>
@@ -955,6 +951,22 @@ footer{
           <li>포장 자동화 시스템</li>
           <li>품질검사 비전 시스템</li>
           <li>팔레타이징 솔루션</li>
+        </ul>
+      </div>
+      <div class="ind-card reveal">
+        <div class="ind-head"><span class="ind-icon">💄</span><h4>화장품/뷰티업</h4></div>
+        <ul class="ind-list">
+          <li>용기 외관 불량 검사</li>
+          <li>라벨·소비기한 OCR 검증</li>
+          <li>충전·포장 라인 자동화</li>
+        </ul>
+      </div>
+      <div class="ind-card reveal">
+        <div class="ind-head"><span class="ind-icon">🚗</span><h4>자동차/모빌리티업</h4></div>
+        <ul class="ind-list">
+          <li>부품 MES·이력추적 구축</li>
+          <li>조립·용접 로봇 자동화</li>
+          <li>외관·치수 비전 검사</li>
         </ul>
       </div>
       <div class="ind-card reveal">
@@ -1284,7 +1296,7 @@ footer{
       <p>현장 상황에 맞는 솔루션을 제안해 드립니다.<br>30분 무료 컨설팅으로 도입 비용·기간·ROI를 함께 분석해 드립니다.</p>
       <div class="cta-btns">
         <a href="contact.html?type=consult" class="btn-glow" style="display:inline-flex;align-items:center;gap:6px;">📋 무료 상담 신청 →</a>
-        <a href="tel:01097415525" class="btn-outline" style="display:inline-flex;align-items:center;gap:6px;">📞 010-9741-5525</a>
+        <a href="tel:+82-10-9741-5525" class="btn-outline" style="display:inline-flex;align-items:center;gap:6px;">📞 010-9741-5525</a>
       </div>
       <div class="cta-notes">
         <span class="cta-note">계약 없이 무료 체험</span>
@@ -1303,7 +1315,7 @@ footer{
       <div class="footer-brand">
         <!-- Footer logo -->
         <div style="margin-bottom:.9rem;">
-          <img src="logo.png" alt="코드베이스 CODE:BASE" style="height:34px;width:auto;display:block;" />
+          <img src="codebase-logo.png" alt="코드베이스 CODE:BASE" style="height:34px;width:auto;display:block;" />
         </div>
         <p>스마트팩토리 구축 &amp; 플랫폼 개발 전문기업.<br>AI 머신비전 · 스마트HACCP · MES · 자동화를 하나로.</p>
         <div class="contact">
@@ -1317,7 +1329,7 @@ footer{
         <h5>솔루션</h5>
         <a href="#services">AI 머신비전</a>
         <a href="#services">스마트 HACCP</a>
-        <a href="#services">MES 컨트롤타워</a>
+        <a href="#services">MES (제조 실행 시스템)</a>
         <a href="#services">자동화 로봇</a>
       </div>
       <div class="footer-col">
@@ -1447,6 +1459,9 @@ const counterObs = new IntersectionObserver((entries) => {
       const text = entry.target.textContent;
       if (text.includes('+')) { const n = parseInt(text); animateCounter(entry.target, n, '+'); }
       else if (text.includes('%')) { const n = parseFloat(text); animateCounter(entry.target, n, '%'); }
+      else if (text.includes('시간')) { const n = parseInt(text); animateCounter(entry.target, n, '시간'); }
+      else if (text.includes('건')) { const n = parseInt(text); animateCounter(entry.target, n, '건'); }
+      else if (text.includes('배')) { const n = parseInt(text); animateCounter(entry.target, n, '배'); }
     }
   });
 }, { threshold: 0.5 });
