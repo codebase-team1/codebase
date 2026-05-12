@@ -38,6 +38,7 @@
 <link rel="canonical" href="https://www.code-base.co.kr/">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Noto+Sans+KR:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 /* ════════════════════════════════════════
@@ -65,14 +66,19 @@
   --shadow-sm:0 1px 2px rgba(15,23,42,.04), 0 1px 1px rgba(15,23,42,.03);
   --shadow-md:0 4px 12px rgba(15,23,42,.06), 0 2px 4px rgba(15,23,42,.04);
   --shadow-lg:0 12px 32px rgba(15,23,42,.08), 0 4px 8px rgba(15,23,42,.05);
-  --mono:'JetBrains Mono',monospace;
+  --mono:'JetBrains Mono','Noto Sans KR',monospace;
   --head:'Barlow Condensed',sans-serif;
   --body:'Noto Sans KR',sans-serif;
   --r:6px;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:var(--bg0);color:var(--t1);font-family:var(--body);font-size:15px;line-height:1.6;overflow-x:hidden}
+html{
+  scroll-behavior:smooth;
+  scroll-snap-type:y mandatory;
+  scroll-padding-top:60px;
+}
+.hero,.section,footer{scroll-snap-align:start;scroll-snap-stop:always}
+body{background:var(--bg0);color:var(--t1);font-family:var(--body);font-size:15px;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility}
 a{text-decoration:none;color:inherit}
 button{border:none;cursor:pointer;font-family:inherit}
 
@@ -153,17 +159,17 @@ nav.scrolled{border-bottom-color:var(--border2);box-shadow:var(--shadow-sm)}
 
 /* ════ HERO ════ */
 .hero{
-  min-height:100vh;display:flex;align-items:center;
-  padding:80px 0 60px;overflow:hidden;position:relative;z-index:1;
+  min-height:100vh;display:flex;flex-direction:column;justify-content:center;
+  padding:80px 0 0;overflow:hidden;position:relative;z-index:1;
 }
-.hero-wrap{max-width:1200px;margin:0 auto;padding:0 2rem;width:100%;
-  display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:center}
+.hero-wrap{max-width:1200px;margin:0 auto;padding:0 2rem 2.5rem;width:100%;
+  display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:center;flex:1}
 
 /* left */
 .hero-eyebrow{
   display:inline-flex;align-items:center;gap:8px;margin-bottom:1.5rem;
   border:1px solid var(--border2);border-radius:3px;padding:5px 12px;
-  font-family:var(--mono);font-size:.68rem;letter-spacing:1.5px;color:var(--cyan);
+  font-family:var(--mono);font-size:.68rem;font-weight:600;letter-spacing:1.5px;color:var(--cyan);
   background:rgba(8,145,178,.08);
 }
 .live-dot{width:6px;height:6px;background:var(--green);border-radius:50%;animation:pulse 1.2s infinite}
@@ -194,7 +200,7 @@ nav.scrolled{border-bottom-color:var(--border2);box-shadow:var(--shadow-sm)}
   border-top:1px solid var(--border);
 }
 .stat-val{font-family:var(--head);font-weight:900;font-size:2.1rem;color:var(--sky);line-height:1}
-.stat-lbl{font-size:.72rem;color:var(--t3);margin-top:3px;letter-spacing:.3px}
+.stat-lbl{font-size:.72rem;font-weight:700;color:var(--t3);margin-top:3px;letter-spacing:.3px}
 
 /* ── DASHBOARD CARD (right) ── */
 .dash{
@@ -209,7 +215,7 @@ nav.scrolled{border-bottom-color:var(--border2);box-shadow:var(--shadow-sm)}
 .dash-head{
   display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;
 }
-.dash-title{font-family:var(--mono);font-size:.78rem;color:var(--t3);letter-spacing:1px}
+.dash-title{font-family:var(--mono);font-size:.78rem;font-weight:600;color:var(--t1);letter-spacing:1px}
 .live-badge{
   display:flex;align-items:center;gap:5px;
   font-family:var(--mono);font-size:.78rem;color:var(--green);
@@ -228,7 +234,7 @@ nav.scrolled{border-bottom-color:var(--border2);box-shadow:var(--shadow-sm)}
 
 /* bar chart */
 .chart-area{margin-bottom:1rem}
-.chart-lbl{font-family:var(--mono);font-size:.74rem;color:var(--t3);margin-bottom:7px}
+.chart-lbl{font-family:var(--mono);font-size:.74rem;font-weight:600;color:var(--t1);margin-bottom:7px}
 .bars{display:flex;align-items:flex-end;gap:4px;height:58px}
 .bar{flex:1;border-radius:2px 2px 0 0;transition:opacity .2s}
 .bar:hover{opacity:.75}
@@ -279,9 +285,13 @@ nav.scrolled{border-bottom-color:var(--border2);box-shadow:var(--shadow-sm)}
 .alert-b{margin-left:auto;flex-shrink:0}
 
 /* ════ SECTION COMMON ════ */
-.section{padding:5.5rem 0;position:relative;z-index:1}
+.section{
+  padding:5rem 0;position:relative;z-index:1;
+  min-height:100vh;
+  display:flex;flex-direction:column;justify-content:center;
+}
 .section.alt{background:var(--bg1)}
-.wrap{max-width:1200px;margin:0 auto;padding:0 2rem}
+.wrap{max-width:1200px;margin:0 auto;padding:0 2rem;width:100%}
 .sec-eyebrow{
   font-family:var(--mono);font-size:.68rem;letter-spacing:2px;
   color:var(--sky);text-transform:uppercase;margin-bottom:.7rem;
@@ -326,7 +336,7 @@ h2.sec-h{
 .svc-card p{font-size:.8rem;color:var(--t2);line-height:1.65}
 .svc-tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:.75rem}
 .stag{
-  font-family:var(--mono);font-size:.55rem;
+  font-family:var(--mono);font-size:.64rem;
   border:1px solid var(--border);border-radius:3px;
   padding:2px 6px;color:var(--t3);
 }
@@ -384,7 +394,7 @@ h2.sec-h{
 .proj-item:hover{background:#fff}
 .proj-item:hover{border-color:var(--border2)}
 .proj-badge{
-  font-family:var(--mono);font-size:.56rem;letter-spacing:.5px;
+  font-family:var(--mono);font-size:.64rem;letter-spacing:.3px;
   padding:2px 7px;border-radius:3px;flex-shrink:0;
 }
 .pb-robot{background:rgba(30,106,138,.12);color:var(--sky)}
@@ -407,7 +417,7 @@ h2.sec-h{
   font-size:1rem;flex-shrink:0;
 }
 .supp-name{font-size:.78rem;font-weight:500}
-.supp-cat{font-family:var(--mono);font-size:.58rem;color:var(--t3)}
+.supp-cat{font-family:var(--mono);font-size:.66rem;color:var(--t3)}
 
 /* govt panel */
 .gov-items{display:flex;flex-direction:column;gap:.5rem}
@@ -417,7 +427,7 @@ h2.sec-h{
   border-radius:5px;padding:.65rem .85rem;
 }
 .gov-tag{
-  font-family:var(--mono);font-size:.55rem;padding:2px 7px;border-radius:3px;
+  font-family:var(--mono);font-size:.64rem;padding:2px 7px;border-radius:3px;
   flex-shrink:0;
 }
 .gt-open{background:rgba(5,150,105,.12);color:var(--green)}
@@ -446,8 +456,7 @@ h2.sec-h{
 /* ════ STATS BAND ════ */
 .stats-band{
   background:var(--bg1);border-top:1px solid var(--border);
-  border-bottom:1px solid var(--border);
-  padding:3rem 0;
+  padding:1.5rem 0;
 }
 .stats-inner{
   display:flex;justify-content:space-around;align-items:center;flex-wrap:wrap;gap:2rem;
@@ -480,7 +489,7 @@ h2.sec-h{
 .ct-auto{background:linear-gradient(135deg,#DBEAFE,#BFDBFE)}
 .case-body{padding:1.1rem}
 .case-industry{
-  font-family:var(--mono);font-size:.58rem;letter-spacing:1px;
+  font-family:var(--mono);font-size:.64rem;letter-spacing:1px;
   color:var(--sky);text-transform:uppercase;margin-bottom:.4rem;
 }
 .case-card h4{font-family:var(--head);font-weight:700;font-size:1.05rem;margin-bottom:.4rem}
@@ -504,7 +513,7 @@ h2.sec-h{
 .tech-card p{font-size:.78rem;color:var(--t2);line-height:1.6;margin-bottom:.75rem}
 .tech-pills{display:flex;flex-wrap:wrap;gap:4px}
 .tpill{
-  font-family:var(--mono);font-size:.56rem;letter-spacing:.3px;
+  font-family:var(--mono);font-size:.62rem;letter-spacing:.3px;
   border:1px solid var(--border);border-radius:3px;padding:2px 7px;color:var(--t3);
 }
 
@@ -565,6 +574,10 @@ footer{
   .cases-grid{grid-template-columns:1fr 1fr}
   .tech-grid{grid-template-columns:1fr 1fr}
   .footer-grid{grid-template-columns:1fr 1fr}
+  /* 모바일·태블릿은 자유 스크롤 — snap은 데스크탑 전용 */
+  html{scroll-snap-type:none}
+  .hero,.section{min-height:auto;padding:4rem 0}
+  .hero{padding-top:84px}
 }
 @media(max-width:768px){
   .hero-wrap{grid-template-columns:1fr}
@@ -609,25 +622,27 @@ footer{
 
 /* ════ INDUSTRY GRID ════ */
 .ind-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2.5rem;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:.85rem;margin-top:2rem;
 }
 .ind-card{
   background:var(--bg2);border:1px solid var(--border);border-radius:10px;
-  padding:1.5rem 1.35rem;transition:border-color .2s,transform .2s,box-shadow .2s;
+  padding:1.1rem 1rem;transition:border-color .2s,transform .2s,box-shadow .2s;
   box-shadow:var(--shadow-sm);
 }
 .ind-card:hover{border-color:var(--border2);transform:translateY(-3px);box-shadow:var(--shadow-md)}
-.ind-head{display:flex;align-items:center;gap:10px;margin-bottom:1rem}
-.ind-icon{font-size:1.4rem;line-height:1}
+.ind-head{display:flex;align-items:center;gap:8px;margin-bottom:.7rem}
+.ind-icon{font-size:1.25rem;line-height:1}
 .ind-head h4{
-  font-family:var(--head);font-weight:800;font-size:1.1rem;
+  font-family:var(--head);font-weight:800;font-size:1rem;
   color:var(--sky);
 }
-.ind-list{list-style:none;display:flex;flex-direction:column;gap:.45rem}
+.ind-list{list-style:none;display:flex;flex-direction:column;gap:.35rem}
 .ind-list li{
-  font-size:.82rem;color:var(--t2);display:flex;align-items:flex-start;gap:8px;line-height:1.5;
+  font-size:.76rem;color:var(--t2);display:flex;align-items:flex-start;gap:6px;line-height:1.45;
 }
 .ind-list li::before{content:'·';color:var(--sky);font-size:1rem;line-height:1.3;flex-shrink:0}
+@media(max-width:1024px){.ind-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.ind-grid{grid-template-columns:1fr}}
 
 /* ════ VS COMPARISON TABLE ════ */
 .vs-table{
@@ -735,8 +750,9 @@ footer{
   <div class="nav-menu" id="navMenu">
     <a href="#services" class="nav-link">솔루션</a>
     <a href="#industry" class="nav-link">산업군</a>
-    <a href="#process" class="nav-link">프로세스</a>
+    <a href="#why" class="nav-link">차별점</a>
     <a href="#platform" class="nav-link">플랫폼</a>
+    <a href="#process" class="nav-link">프로세스</a>
     <a href="#tech" class="nav-link">기술</a>
     <a href="#contact" class="nav-link">문의</a>
   </div>
@@ -844,39 +860,39 @@ footer{
       </div>
     </div>
   </div>
-</section>
 
-<!-- ══════════ STATS BAND ══════════ -->
-<div class="stats-band">
-  <div class="wrap">
-    <div class="stats-inner">
-      <div class="stat-block reveal">
-        <div class="val">7건</div>
-        <div class="lbl">성공 구축사례 <span style="font-family:var(--mono);font-size:.65rem;color:var(--sky);display:block;margin-top:2px;">'26 상반기 기준</span></div>
+  <!-- ══ STATS BAND (Hero 내부 흡수) ══ -->
+  <div class="stats-band">
+    <div class="wrap">
+      <div class="stats-inner">
+        <div class="stat-block reveal">
+          <div class="val">7건</div>
+          <div class="lbl">성공 구축사례 <span style="font-family:var(--mono);font-size:.65rem;color:var(--sky);display:block;margin-top:2px;">'26 상반기 기준</span></div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-block reveal">
+          <div class="val">30+</div>
+          <div class="lbl">검증 공급사</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-block reveal">
+          <div class="val">7+</div>
+          <div class="lbl">프로젝트 매칭 <span style="font-family:var(--mono);font-size:.65rem;color:var(--sky);display:block;margin-top:2px;">'26 상반기 기준</span></div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-block reveal"><div class="val">98%</div><div class="lbl">고객 만족도</div></div>
+        <div class="stat-divider"></div>
+        <div class="stat-block reveal"><div class="val">72시간</div><div class="lbl">평균 매칭 완료</div></div>
       </div>
-      <div class="stat-divider"></div>
-      <div class="stat-block reveal">
-        <div class="val">30+</div>
-        <div class="lbl">검증 공급사</div>
-      </div>
-      <div class="stat-divider"></div>
-      <div class="stat-block reveal">
-        <div class="val">7+</div>
-        <div class="lbl">프로젝트 매칭 <span style="font-family:var(--mono);font-size:.65rem;color:var(--sky);display:block;margin-top:2px;">'26 상반기 기준</span></div>
-      </div>
-      <div class="stat-divider"></div>
-      <div class="stat-block reveal"><div class="val">98%</div><div class="lbl">고객 만족도</div></div>
-      <div class="stat-divider"></div>
-      <div class="stat-block reveal"><div class="val">72시간</div><div class="lbl">평균 매칭 완료</div></div>
     </div>
   </div>
-</div>
+</section>
 
 <!-- ══════════ SERVICES ══════════ -->
 <section class="section" id="services">
   <div class="wrap">
     <div class="sec-header reveal">
-      <div class="sec-eyebrow">Core Solutions</div>
+      <div class="sec-eyebrow">02 · Core Solutions</div>
       <h2 class="sec-h">4개 핵심 솔루션,<br>하나의 플랫폼</h2>
       <p class="sec-desc">제조 현장의 모든 문제를 해결하는 통합 솔루션. 필요한 모듈만 선택해 단계적으로 도입하세요.</p>
     </div>
@@ -886,7 +902,7 @@ footer{
         <h3>AI 머신비전 (포장/검사)</h3>
         <p>다품종·비정형 제품 판독, 라벨·소비기한 실시간 자동 실적 집계. 복합 이미지 학습으로 판독 성공율을 지속 향상.</p>
         <div style="margin:0.6rem 0;padding:0.55rem 0.7rem;background:rgba(30,106,138,.08);border:1px solid rgba(30,106,138,.2);border-left:2px solid var(--sky);border-radius:4px;">
-          <div style="font-family:var(--mono);font-size:.58rem;color:var(--sky);letter-spacing:.5px;margin-bottom:2px;">📌 의료기기 딥러닝 판독</div>
+          <div style="font-family:var(--mono);font-size:.64rem;color:var(--sky);letter-spacing:.5px;margin-bottom:2px;font-weight:600;">📌 의료기기 딥러닝 판독</div>
           <div style="font-size:.76rem;color:var(--t2);">의료기기 딥러닝 판독 <strong style="color:var(--green);font-family:var(--mono);">90%</strong> 판독 정확도 달성</div>
         </div>
         <div class="svc-tags">
@@ -898,7 +914,7 @@ footer{
         <h3>스마트 HACCP</h3>
         <p>실시간 PUSH 알림 · 양식 업로드 자동기록일지 · 이탈사유 AI 자동입력 · 전자결재까지 한 번에. 수기/엑셀 점검을 디지털로 전환.</p>
         <div style="margin:0.6rem 0;padding:0.55rem 0.7rem;background:rgba(5,150,105,.08);border:1px solid rgba(5,150,105,.2);border-left:2px solid var(--green);border-radius:4px;">
-          <div style="font-family:var(--mono);font-size:.58rem;color:var(--green);letter-spacing:.5px;margin-bottom:2px;">📋 표준 6대 메뉴 구성</div>
+          <div style="font-family:var(--mono);font-size:.64rem;color:var(--green);letter-spacing:.5px;margin-bottom:2px;font-weight:600;">📋 표준 6대 메뉴 구성</div>
           <div style="font-size:.76rem;color:var(--t2);">기준정보 · 전자결재 · CCP중요관리점 · 선행요건관리 · 법적서류관리 · 교육관리</div>
         </div>
         <div class="svc-tags">
@@ -910,7 +926,7 @@ footer{
         <h3>MES (제조 실행 시스템)</h3>
         <p>식품 스마트팩토리 구축사례·노하우를 집약한 MES. 클라우드 기반으로 중소제조기업도 부담 없이 도입, 필요한 모듈만 선별해 단계적으로 확장하세요.</p>
         <div style="margin:0.6rem 0;padding:0.55rem 0.7rem;background:rgba(124,58,237,.08);border:1px solid rgba(124,58,237,.2);border-left:2px solid var(--violet);border-radius:4px;">
-          <div style="font-family:var(--mono);font-size:.58rem;color:var(--violet);letter-spacing:.5px;margin-bottom:2px;">📊 모듈형 도입 구조</div>
+          <div style="font-family:var(--mono);font-size:.64rem;color:var(--violet);letter-spacing:.5px;margin-bottom:2px;font-weight:600;">📊 모듈형 도입 구조</div>
           <div style="font-size:.76rem;color:var(--t2);">영업·생산·품질·설비·재고관리 모듈을 <strong style="color:var(--violet);font-family:var(--mono);">선별 도입</strong>, Web+C/S 데이터 연계</div>
         </div>
         <div class="svc-tags">
@@ -922,7 +938,7 @@ footer{
         <h3>자동화 로봇</h3>
         <p>협동로봇 기반 공정 자동화. AI 비전 연동 불량품 자동 배출, 다품종 전환 자동 로딩까지 한 라인으로.</p>
         <div style="margin:0.6rem 0;padding:0.55rem 0.7rem;background:rgba(217,119,6,.08);border:1px solid rgba(217,119,6,.2);border-left:2px solid var(--amber);border-radius:4px;">
-          <div style="font-family:var(--mono);font-size:.58rem;color:var(--amber);letter-spacing:.5px;margin-bottom:2px;">🛠️ 직접 구축 실적</div>
+          <div style="font-family:var(--mono);font-size:.64rem;color:var(--amber);letter-spacing:.5px;margin-bottom:2px;font-weight:600;">🛠️ 직접 구축 실적</div>
           <div style="font-size:.76rem;color:var(--t2);">협동로봇 + AI 비전 <strong style="color:var(--amber);font-family:var(--mono);">통합 자동화 라인</strong> 구축 운영 중</div>
         </div>
         <div class="svc-tags">
@@ -937,7 +953,7 @@ footer{
 <section class="section alt" id="industry">
   <div class="wrap">
     <div class="sec-header reveal" style="text-align:center">
-      <div class="sec-eyebrow" style="justify-content:center">Industry</div>
+      <div class="sec-eyebrow" style="justify-content:center">03 · Industries</div>
       <h2 class="sec-h" style="text-align:center">코드베이스는<br>모든 산업의 제조화 프로젝트를 지원합니다</h2>
       <p class="sec-desc" style="margin:0 auto;text-align:center;max-width:640px">
         식품·포장, 기계·금속가공, 화학·제약, 전자·반도체, 섬유·의류, 건설자재업까지<br>
@@ -1013,51 +1029,11 @@ footer{
   </div>
 </section>
 
-<!-- ══════════ PROCESS (도입 4단계) ══════════ -->
-<section class="section" id="process">
-  <div class="wrap">
-    <div class="sec-header reveal" style="text-align:center">
-      <div class="sec-eyebrow" style="justify-content:center">Process</div>
-      <h2 class="sec-h" style="text-align:center">문의부터 운영까지<br>4단계로 끝내는 도입 프로세스</h2>
-      <p class="sec-desc" style="margin:0 auto;text-align:center;max-width:600px">
-        프로젝트 의뢰 한 번으로 매칭·구축·운영까지.<br>
-        각 단계에 코드베이스 전담 PM이 동행합니다.
-      </p>
-    </div>
-    <div class="steps">
-      <div class="step reveal">
-        <div class="step-num">01</div>
-        <h4>문의 접수</h4>
-        <p>홈페이지 폼 또는 전화로 도입·공급 문의 접수.<br>24시간 내 담당자 1차 상담 일정 안내.</p>
-        <div style="margin-top:.8rem;font-family:var(--mono);font-size:.6rem;color:var(--sky);letter-spacing:.5px;">⏱ D-Day</div>
-      </div>
-      <div class="step reveal">
-        <div class="step-num">02</div>
-        <h4>매칭 · 진단</h4>
-        <p>현장 진단으로 요구사항을 정리하고 30+ 검증 공급사 풀에서 최적 매칭.<br>복수 견적·기술 비교 동시 제공.</p>
-        <div style="margin-top:.8rem;font-family:var(--mono);font-size:.6rem;color:var(--sky);letter-spacing:.5px;">⏱ 72시간 내</div>
-      </div>
-      <div class="step reveal">
-        <div class="step-num">03</div>
-        <h4>구축 · 실증</h4>
-        <p>솔루션 설계, PoC 실증, 설비/소프트웨어 연동, 인수 테스트.<br>코드베이스 PM이 일정·품질 관리.</p>
-        <div style="margin-top:.8rem;font-family:var(--mono);font-size:.6rem;color:var(--sky);letter-spacing:.5px;">⏱ 4-12주</div>
-      </div>
-      <div class="step reveal">
-        <div class="step-num">04</div>
-        <h4>운영 · 확장</h4>
-        <p>운영 모니터링·정기 점검, 정부지원사업 신청 대행, 라인 확장 시 즉시 재매칭.</p>
-        <div style="margin-top:.8rem;font-family:var(--mono);font-size:.6rem;color:var(--sky);letter-spacing:.5px;">⏱ 상시</div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ══════════ VS COMPARISON ══════════ -->
-<section class="section alt" id="why">
+<section class="section" id="why">
   <div class="wrap">
     <div class="sec-header reveal" style="text-align:center">
-      <div class="sec-eyebrow" style="justify-content:center">Why Codebase</div>
+      <div class="sec-eyebrow" style="justify-content:center">04 · Why Codebase</div>
       <h2 class="sec-h" style="text-align:center">같은 공급사를 만나도,<br><em style="font-style:normal;color:var(--sky)">'어떻게 찾았는지'</em>에 따라<br>결과는 완전히 달라집니다</h2>
       <p class="sec-desc" style="margin:0 auto;text-align:center">
         대부분의 자동화 프로젝트 문제는 '공급사'가 아니라<br>공급사를 찾는 방식에서 시작됩니다.
@@ -1151,12 +1127,12 @@ footer{
 </section>
 
 <!-- ══════════ PLATFORM FEATURES ══════════ -->
-<section class="section" id="platform">
+<section class="section alt" id="platform">
   <div class="wrap">
     <div class="features-grid">
       <!-- LEFT TEXT -->
       <div class="reveal">
-        <div class="sec-eyebrow">Platform</div>
+        <div class="sec-eyebrow">05 · Platform</div>
         <h2 class="sec-h">제조 자동화<br>매칭 플랫폼</h2>
         <p style="color:var(--t2);font-size:.9rem;line-height:1.75;margin-bottom:1.5rem">
           단순 소개를 넘어 프로젝트 발굴부터 구축, 운영, 정부지원 신청까지. 스마트팩토리의 전 여정을 하나의 플랫폼에서 완결합니다.
@@ -1269,11 +1245,51 @@ footer{
   </div>
 </section>
 
+<!-- ══════════ PROCESS (도입 4단계) ══════════ -->
+<section class="section" id="process">
+  <div class="wrap">
+    <div class="sec-header reveal" style="text-align:center">
+      <div class="sec-eyebrow" style="justify-content:center">06 · Process</div>
+      <h2 class="sec-h" style="text-align:center">문의부터 운영까지<br>4단계로 끝내는 도입 프로세스</h2>
+      <p class="sec-desc" style="margin:0 auto;text-align:center;max-width:600px">
+        프로젝트 의뢰 한 번으로 매칭·구축·운영까지.<br>
+        각 단계에 코드베이스 전담 PM이 동행합니다.
+      </p>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="step-num">01</div>
+        <h4>문의 접수</h4>
+        <p>홈페이지 폼 또는 전화로 도입·공급 문의 접수.<br>24시간 내 담당자 1차 상담 일정 안내.</p>
+        <div style="margin-top:.8rem;font-family:var(--mono);font-size:.68rem;color:var(--sky);letter-spacing:.5px;font-weight:600;">⏱ D-Day</div>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">02</div>
+        <h4>매칭 · 진단</h4>
+        <p>현장 진단으로 요구사항을 정리하고 30+ 검증 공급사 풀에서 최적 매칭.<br>복수 견적·기술 비교 동시 제공.</p>
+        <div style="margin-top:.8rem;font-family:var(--mono);font-size:.68rem;color:var(--sky);letter-spacing:.5px;font-weight:600;">⏱ 72시간 내</div>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">03</div>
+        <h4>구축 · 실증</h4>
+        <p>솔루션 설계, PoC 실증, 설비/소프트웨어 연동, 인수 테스트.<br>코드베이스 PM이 일정·품질 관리.</p>
+        <div style="margin-top:.8rem;font-family:var(--mono);font-size:.68rem;color:var(--sky);letter-spacing:.5px;font-weight:600;">⏱ 4-12주</div>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">04</div>
+        <h4>운영 · 확장</h4>
+        <p>운영 모니터링·정기 점검, 정부지원사업 신청 대행, 라인 확장 시 즉시 재매칭.</p>
+        <div style="margin-top:.8rem;font-family:var(--mono);font-size:.68rem;color:var(--sky);letter-spacing:.5px;font-weight:600;">⏱ 상시</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ══════════ TECH ══════════ -->
 <section class="section alt" id="tech">
   <div class="wrap">
     <div class="sec-header reveal">
-      <div class="sec-eyebrow">Technology</div>
+      <div class="sec-eyebrow">07 · Technology</div>
       <h2 class="sec-h">기술 강점</h2>
       <p class="sec-desc">PLC·바코드·IoT 완전 연동과 지속 학습 AI로 현장에 최적화된 솔루션을 제공합니다.</p>
     </div>
@@ -1328,7 +1344,7 @@ footer{
 <section class="section" id="contact">
   <div class="wrap">
     <div class="cta-box reveal">
-      <div class="sec-eyebrow" style="justify-content:center">Get Started</div>
+      <div class="sec-eyebrow" style="justify-content:center">08 · Get Started</div>
       <h2>제조 자동화를 위한<br>맞춤 솔루션이 필요하신가요?</h2>
       <p>현장 상황에 맞는 솔루션을 제안해 드립니다.<br>30분 무료 컨설팅으로 도입 비용·기간·ROI를 함께 분석해 드립니다.</p>
       <div class="cta-btns">
@@ -1452,7 +1468,7 @@ document.querySelectorAll('a[href^="#"]:not([href="#"])').forEach(link => {
 });
 
 /* ── Scrollspy: highlight active nav item ── */
-const sections = ['services','industry','process','platform','tech','contact']
+const sections = ['services','industry','why','platform','process','tech','contact']
   .map(id => document.getElementById(id)).filter(Boolean);
 
 const navLinks = document.querySelectorAll('a.nav-link');
