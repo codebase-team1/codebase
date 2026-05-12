@@ -373,9 +373,9 @@ h2.sec-h{
 }
 .feat-tabs{display:flex;gap:.4rem;margin-bottom:2rem;flex-wrap:wrap}
 .ftab{
-  font-family:var(--mono);font-size:.68rem;letter-spacing:.4px;
+  font-family:var(--mono);font-size:.78rem;letter-spacing:.4px;
   border:1px solid var(--border);border-radius:4px;
-  padding:.38rem .9rem;cursor:pointer;color:var(--t3);background:transparent;
+  padding:.5rem 1.1rem;cursor:pointer;color:var(--t3);background:transparent;
   transition:all .2s;
 }
 .ftab:hover{border-color:var(--border2);color:var(--t2)}
@@ -384,57 +384,57 @@ h2.sec-h{
 .fpanel.active{display:block}
 
 /* project list */
-.proj-list{display:flex;flex-direction:column;gap:.5rem}
+.proj-list{display:flex;flex-direction:column;gap:.6rem}
 .proj-item{
-  display:flex;align-items:center;gap:.75rem;
+  display:flex;align-items:center;gap:.85rem;
   background:var(--bg3);border:1px solid var(--border);
-  border-radius:5px;padding:.65rem .85rem;
+  border-radius:5px;padding:.85rem 1.05rem;
   transition:border-color .2s,background .2s;
 }
 .proj-item:hover{background:#fff}
 .proj-item:hover{border-color:var(--border2)}
 .proj-badge{
-  font-family:var(--mono);font-size:.64rem;letter-spacing:.3px;
-  padding:2px 7px;border-radius:3px;flex-shrink:0;
+  font-family:var(--mono);font-size:.72rem;letter-spacing:.3px;
+  padding:3px 9px;border-radius:3px;flex-shrink:0;
 }
 .pb-robot{background:rgba(30,106,138,.12);color:var(--sky)}
 .pb-vision{background:rgba(5,150,105,.12);color:var(--green)}
 .pb-mes{background:rgba(124,58,237,.12);color:var(--violet)}
 .pb-haccp{background:rgba(217,119,6,.12);color:var(--amber)}
-.proj-title{font-size:.82rem;color:var(--t1);flex:1}
-.proj-biz{font-family:var(--mono);font-size:.6rem;color:var(--t3)}
-.proj-price{font-family:var(--mono);font-size:.68rem;color:var(--sky);flex-shrink:0}
+.proj-title{font-size:.92rem;color:var(--t1);flex:1}
+.proj-biz{font-family:var(--mono);font-size:.7rem;color:var(--t3)}
+.proj-price{font-family:var(--mono);font-size:.78rem;color:var(--sky);flex-shrink:0}
 
 /* supplier grid */
-.supp-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.5rem}
+.supp-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.6rem}
 .supp-card{
   background:var(--bg3);border:1px solid var(--border);
-  border-radius:5px;padding:.75rem;display:flex;align-items:center;gap:.65rem;
+  border-radius:5px;padding:.95rem;display:flex;align-items:center;gap:.75rem;
 }
 .supp-logo{
-  width:36px;height:36px;border-radius:5px;border:1px solid var(--border2);
+  width:42px;height:42px;border-radius:5px;border:1px solid var(--border2);
   background:var(--bg3);display:flex;align-items:center;justify-content:center;
-  font-size:1rem;flex-shrink:0;
+  font-size:1.15rem;flex-shrink:0;
 }
-.supp-name{font-size:.78rem;font-weight:500}
-.supp-cat{font-family:var(--mono);font-size:.66rem;color:var(--t3)}
+.supp-name{font-size:.9rem;font-weight:500}
+.supp-cat{font-family:var(--mono);font-size:.74rem;color:var(--t3)}
 
 /* govt panel */
-.gov-items{display:flex;flex-direction:column;gap:.5rem}
+.gov-items{display:flex;flex-direction:column;gap:.6rem}
 .gov-item{
-  display:flex;align-items:center;gap:.75rem;
+  display:flex;align-items:center;gap:.85rem;
   background:var(--bg3);border:1px solid var(--border);
-  border-radius:5px;padding:.65rem .85rem;
+  border-radius:5px;padding:.85rem 1.05rem;
 }
 .gov-tag{
-  font-family:var(--mono);font-size:.64rem;padding:2px 7px;border-radius:3px;
+  font-family:var(--mono);font-size:.72rem;padding:3px 9px;border-radius:3px;
   flex-shrink:0;
 }
 .gt-open{background:rgba(5,150,105,.12);color:var(--green)}
 .gt-soon{background:rgba(217,119,6,.12);color:var(--amber)}
 .gt-close{background:rgba(100,116,139,.12);color:var(--t3)}
-.gov-title{font-size:.8rem;flex:1}
-.gov-budget{font-family:var(--mono);font-size:.65rem;color:var(--sky)}
+.gov-title{font-size:.9rem;flex:1}
+.gov-budget{font-family:var(--mono);font-size:.75rem;color:var(--sky)}
 
 /* feature list */
 .feat-list{list-style:none;display:flex;flex-direction:column;gap:.65rem}
@@ -521,7 +521,7 @@ h2.sec-h{
 .cta-box{
   background:linear-gradient(135deg,#F0F9FF 0%,#FFFFFF 50%,#FAF5FF 100%);
   border:1px solid var(--border2);border-radius:12px;
-  padding:4.5rem 3rem;text-align:center;position:relative;overflow:hidden;
+  padding:5.5rem 3.5rem;text-align:center;position:relative;overflow:hidden;
   box-shadow:var(--shadow-lg);
 }
 .cta-box::before{
@@ -533,11 +533,12 @@ h2.sec-h{
   background:linear-gradient(90deg,var(--sky),var(--cyan),var(--violet));
 }
 .cta-box>*{position:relative;z-index:1}
-.cta-box h2{font-family:var(--head);font-weight:900;font-size:clamp(2.1rem,3.8vw,3.1rem);margin-bottom:1rem}
-.cta-box p{color:var(--t2);font-size:1rem;margin-bottom:2.4rem;line-height:1.7;word-break:keep-all}
-.cta-btns{display:flex;gap:1.1rem;justify-content:center;flex-wrap:wrap}
-.cta-notes{display:flex;gap:2.2rem;justify-content:center;margin-top:2rem;flex-wrap:wrap}
-.cta-note{font-family:var(--mono);font-size:.76rem;color:var(--t3)}
+.cta-box h2{font-family:var(--head);font-weight:900;font-size:clamp(2.4rem,4.2vw,3.5rem);margin-bottom:1.2rem}
+.cta-box p{color:var(--t2);font-size:1.1rem;margin-bottom:2.6rem;line-height:1.7;word-break:keep-all}
+.cta-btns{display:flex;gap:1.3rem;justify-content:center;flex-wrap:wrap}
+.cta-box .btn-glow,.cta-box .btn-outline{font-size:.92rem;padding:.95rem 2.2rem}
+.cta-notes{display:flex;gap:2.4rem;justify-content:center;margin-top:2.2rem;flex-wrap:wrap}
+.cta-note{font-family:var(--mono);font-size:.82rem;color:var(--t3)}
 .cta-note::before{content:'✓ ';color:var(--green)}
 
 /* ════ FOOTER ════ */
@@ -651,12 +652,12 @@ footer{
   overflow:hidden;box-shadow:var(--shadow-md);
 }
 .vs-header{
-  display:grid;grid-template-columns:1fr 180px 1fr;
+  display:grid;grid-template-columns:1fr 170px 1fr;
   background:var(--bg3);border-bottom:1px solid var(--border);
-  padding:1.3rem 1.75rem;align-items:center;
+  padding:1rem 1.5rem;align-items:center;
 }
 .vs-col-label{
-  font-family:var(--head);font-weight:800;font-size:1.18rem;text-align:center;
+  font-family:var(--head);font-weight:800;font-size:1.05rem;text-align:center;
 }
 .vs-col-label.old{color:var(--t3)}
 .vs-col-label.new{color:var(--sky)}
@@ -668,10 +669,10 @@ footer{
   border-radius:8px;padding:.4rem .8rem;margin:0 auto;width:fit-content;
 }
 .vs-row{
-  display:grid;grid-template-columns:1fr 180px 1fr;
+  display:grid;grid-template-columns:1fr 170px 1fr;
   align-items:center;gap:0;
   border-bottom:1px solid var(--border);
-  padding:1.1rem 1.75rem;
+  padding:.85rem 1.5rem;
   transition:background .15s;
 }
 .vs-row:hover{background:#FAFBFC}
@@ -710,14 +711,14 @@ footer{
   min-height:100%;
 }
 .vs-criterion{
-  font-family:var(--head);font-weight:700;font-size:1.02rem;
+  font-family:var(--head);font-weight:700;font-size:.92rem;
   color:var(--sky);text-align:center;line-height:1.3;
 }
-.vs-tag-group{display:flex;flex-wrap:wrap;gap:.45rem;justify-content:flex-end}
+.vs-tag-group{display:flex;flex-wrap:wrap;gap:.4rem;justify-content:flex-end}
 .vs-tag{
   display:inline-flex;align-items:center;
-  font-size:.86rem;padding:.4rem .85rem;border-radius:5px;
-  line-height:1.45;text-align:center;word-break:keep-all;
+  font-size:.78rem;padding:.35rem .75rem;border-radius:5px;
+  line-height:1.4;text-align:center;word-break:keep-all;
 }
 .vs-tag.wide{width:100%;justify-content:flex-end;text-align:right}
 
@@ -892,7 +893,7 @@ footer{
 <section class="section" id="services">
   <div class="wrap">
     <div class="sec-header reveal">
-      <div class="sec-eyebrow">Core Solutions</div>
+      <div class="sec-eyebrow">02 · Core Solutions</div>
       <h2 class="sec-h">4개 핵심 솔루션,<br>하나의 플랫폼</h2>
       <p class="sec-desc">제조 현장의 모든 문제를 해결하는 통합 솔루션. 필요한 모듈만 선택해 단계적으로 도입하세요.</p>
     </div>
@@ -953,7 +954,7 @@ footer{
 <section class="section alt" id="industry">
   <div class="wrap">
     <div class="sec-header reveal" style="text-align:center">
-      <div class="sec-eyebrow" style="justify-content:center">Industries</div>
+      <div class="sec-eyebrow" style="justify-content:center">03 · Industries</div>
       <h2 class="sec-h" style="text-align:center">코드베이스는<br>모든 산업의 제조화 프로젝트를 지원합니다</h2>
       <p class="sec-desc" style="margin:0 auto;text-align:center;max-width:640px">
         식품·포장, 기계·금속가공, 화학·제약, 전자·반도체, 섬유·의류, 건설자재업까지<br>
@@ -1032,8 +1033,8 @@ footer{
 <!-- ══════════ VS COMPARISON ══════════ -->
 <section class="section" id="why">
   <div class="wrap">
-    <div class="sec-header reveal" style="text-align:center">
-      <div class="sec-eyebrow" style="justify-content:center">Why Codebase</div>
+    <div class="sec-header reveal" style="text-align:center;margin-bottom:2rem">
+      <div class="sec-eyebrow" style="justify-content:center">04 · Why Codebase</div>
       <h2 class="sec-h" style="text-align:center">같은 공급사를 만나도,<br><em style="font-style:normal;color:var(--sky)">'어떻게 찾았는지'</em>에 따라<br>결과는 완전히 달라집니다</h2>
       <p class="sec-desc" style="margin:0 auto;text-align:center">
         대부분의 자동화 프로젝트 문제는 '공급사'가 아니라<br>공급사를 찾는 방식에서 시작됩니다.
@@ -1132,7 +1133,7 @@ footer{
     <div class="features-grid">
       <!-- LEFT TEXT -->
       <div class="reveal">
-        <div class="sec-eyebrow">Platform</div>
+        <div class="sec-eyebrow">05 · Platform</div>
         <h2 class="sec-h">제조 자동화<br>매칭 플랫폼</h2>
         <p style="color:var(--t2);font-size:.9rem;line-height:1.75;margin-bottom:1.5rem">
           단순 소개를 넘어 프로젝트 발굴부터 구축, 운영, 정부지원 신청까지. 스마트팩토리의 전 여정을 하나의 플랫폼에서 완결합니다.
@@ -1249,7 +1250,7 @@ footer{
 <section class="section" id="process">
   <div class="wrap">
     <div class="sec-header reveal" style="text-align:center">
-      <div class="sec-eyebrow" style="justify-content:center">Process</div>
+      <div class="sec-eyebrow" style="justify-content:center">06 · Process</div>
       <h2 class="sec-h" style="text-align:center">문의부터 운영까지<br>4단계로 끝내는 도입 프로세스</h2>
       <p class="sec-desc" style="margin:0 auto;text-align:center;max-width:600px">
         프로젝트 의뢰 한 번으로 매칭·구축·운영까지.<br>
@@ -1289,7 +1290,7 @@ footer{
 <section class="section alt" id="tech">
   <div class="wrap">
     <div class="sec-header reveal">
-      <div class="sec-eyebrow">Technology</div>
+      <div class="sec-eyebrow">07 · Technology</div>
       <h2 class="sec-h">기술 강점</h2>
       <p class="sec-desc">PLC·바코드·IoT 완전 연동과 지속 학습 AI로 현장에 최적화된 솔루션을 제공합니다.</p>
     </div>
@@ -1344,7 +1345,7 @@ footer{
 <section class="section" id="contact">
   <div class="wrap">
     <div class="cta-box reveal">
-      <div class="sec-eyebrow" style="justify-content:center">Get Started</div>
+      <div class="sec-eyebrow" style="justify-content:center">08 · Get Started</div>
       <h2>제조 자동화를 위한<br>맞춤 솔루션이 필요하신가요?</h2>
       <p>현장 상황에 맞는 솔루션을 제안해 드립니다.<br>30분 무료 컨설팅으로 도입 비용·기간·ROI를 함께 분석해 드립니다.</p>
       <div class="cta-btns">
